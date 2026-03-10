@@ -1,4 +1,4 @@
-"""aiohttp Application factory for the Nova Nexa HTTP API server."""
+"""aiohttp Application factory for the Sentinel HTTP API server."""
 
 import logging
 import os
@@ -31,7 +31,7 @@ def _get_allowed_agent_roots() -> tuple[Path, ...]:
         _ALLOWED_AGENT_ROOTS = (
             (_REPO_ROOT / "exports").resolve(),
             (_REPO_ROOT / "examples").resolve(),
-            (Path.home() / ".nova-nexa" / "agents").resolve(),
+            (Path.home() / ".sentinel" / "agents").resolve(),
         )
     return _ALLOWED_AGENT_ROOTS
 
@@ -41,7 +41,7 @@ def validate_agent_path(agent_path: str | Path) -> Path:
 
     Prevents arbitrary code execution via ``importlib.import_module`` by
     restricting agent loading to known safe directories: ``exports/``,
-    ``examples/``, and ``~/.nova-nexa/agents/``.
+    ``examples/``, and ``~/.sentinel/agents/``.
 
     Returns the resolved ``Path`` on success.
 
@@ -54,7 +54,7 @@ def validate_agent_path(agent_path: str | Path) -> Path:
             return resolved
     raise ValueError(
         "agent_path must be inside an allowed directory"
-        " (exports/, examples/, or ~/.nova-nexa/agents/)"
+        " (exports/, examples/, or ~/.sentinel/agents/)"
     )
 
 
@@ -86,13 +86,13 @@ def resolve_session(request: web.Request):
 def sessions_dir(session: Session) -> Path:
     """Resolve the worker sessions directory for a session.
 
-    Storage layout: ~/.nova-nexa/agents/{agent_name}/sessions/
+    Storage layout: ~/.sentinel/agents/{agent_name}/sessions/
     Requires a worker to be loaded (worker_path must be set).
     """
     if session.worker_path is None:
         raise ValueError("No worker loaded — no worker sessions directory")
     agent_name = session.worker_path.name
-    return Path.home() / ".nova-nexa" / "agents" / agent_name / "sessions"
+    return Path.home() / ".sentinel" / "agents" / agent_name / "sessions"
 
 
 # Allowed CORS origins (localhost on any port)
@@ -194,7 +194,7 @@ def create_app(model: str | None = None) -> web.Application:
                 generate_and_save_credential_key()
                 logger.info(
                     "Generated and persisted NEXA_CREDENTIAL_KEY"
-                    " to ~/.nova-nexa/secrets/credential_key"
+                    " to ~/.sentinel/secrets/credential_key"
                 )
             except Exception as exc:
                 logger.warning("Could not auto-persist NEXA_CREDENTIAL_KEY: %s", exc)

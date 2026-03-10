@@ -91,7 +91,7 @@ class SessionManager:
             if resolved_id in self._sessions:
                 raise ValueError(f"Session '{resolved_id}' already exists")
 
-        # Load LLM config from ~/.nova-nexa/configuration.json
+        # Load LLM config from ~/.sentinel/configuration.json
         rc = RuntimeConfig(model=model or self._model or RuntimeConfig().model)
 
         # Session owns these — shared with queen and worker
@@ -277,7 +277,7 @@ class SessionManager:
         is from a process that no longer exists. 'Paused' sessions are left
         intact so they remain resumable.
         """
-        sessions_path = Path.home() / ".nova-nexa" / "agents" / agent_path.name / "sessions"
+        sessions_path = Path.home() / ".sentinel" / "agents" / agent_path.name / "sessions"
         if not sessions_path.exists():
             return
 
@@ -325,9 +325,9 @@ class SessionManager:
             model=model,
         )
 
-        # Notify queen about the loaded worker (skip for hive_coder/nova_nexa_coder itself).
+        # Notify queen about the loaded worker (skip for hive_coder/sentinel_coder itself).
         # Health judge disabled for simplicity.
-        if agent_path.name not in ("hive_coder", "nova_nexa_coder") and session.worker_runtime:
+        if agent_path.name not in ("hive_coder", "sentinel_coder") and session.worker_runtime:
             # await self._start_judge(session, session.runner._storage_path)
             await self._notify_queen_worker_loaded(session)
 
@@ -469,7 +469,7 @@ class SessionManager:
         from framework.runner.tool_registry import ToolRegistry
         from framework.runtime.core import Runtime
 
-        hive_home = Path.home() / ".nova-nexa"
+        hive_home = Path.home() / ".sentinel"
         # When queen_resume_from is set we write to the ORIGINAL session's
         # directory so that all messages accumulate in one place.
         storage_session_id = session.queen_resume_from or session.id
@@ -810,7 +810,7 @@ class SessionManager:
                 worker_graph_id=session.worker_runtime._graph_id,
             )
 
-            hive_home = Path.home() / ".nova-nexa"
+            hive_home = Path.home() / ".sentinel"
             judge_dir = hive_home / "judge" / "session" / session.id
             judge_dir.mkdir(parents=True, exist_ok=True)
 
@@ -1002,10 +1002,10 @@ class SessionManager:
         """Return disk metadata for a session that is no longer live in memory.
 
         Checks whether queen conversation files exist at
-        ~/.nova-nexa/queen/session/{session_id}/conversations/.  Returns None when
+        ~/.sentinel/queen/session/{session_id}/conversations/.  Returns None when
         no data is found so callers can fall through to a 404.
         """
-        queen_dir = Path.home() / ".nova-nexa" / "queen" / "session" / session_id
+        queen_dir = Path.home() / ".sentinel" / "queen" / "session" / session_id
         convs_dir = queen_dir / "conversations"
         if not convs_dir.exists():
             return None
@@ -1054,7 +1054,7 @@ class SessionManager:
     @staticmethod
     def list_cold_sessions() -> list[dict]:
         """Return metadata for every queen session directory on disk, newest first."""
-        queen_sessions_dir = Path.home() / ".nova-nexa" / "queen" / "session"
+        queen_sessions_dir = Path.home() / ".sentinel" / "queen" / "session"
         if not queen_sessions_dir.exists():
             return []
 

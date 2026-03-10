@@ -291,7 +291,7 @@ class LocalCredentialRegistry:
 
     @classmethod
     def default(cls) -> LocalCredentialRegistry:
-        """Create a registry using the default encrypted storage at ~/.nova-nexa/credentials."""
+        """Create a registry using the default encrypted storage at ~/.sentinel/credentials."""
         return cls(EncryptedFileStorage())
 
     @classmethod

@@ -184,7 +184,7 @@ class JobHunterAgent:
 
     def _setup(self, mock_mode=False) -> None:
         """Set up the agent runtime with sessions, checkpoints, and logging."""
-        self._storage_path = Path.home() / ".nova-nexa" / "agents" / "job_hunter"
+        self._storage_path = Path.home() / ".sentinel" / "agents" / "job_hunter"
         self._storage_path.mkdir(parents=True, exist_ok=True)
 
         self._tool_registry = ToolRegistry()

@@ -2610,7 +2610,7 @@ class EventLoopNode(NodeProtocol):
         return Tool(
             name="escalate",
             description=(
-                "Escalate to the Nova Nexa queen when requesting user input, "
+                "Escalate to the Sentinel queen when requesting user input, "
                 "blocked by errors, missing "
                 "credentials, or ambiguous constraints that require supervisor "
                 "guidance. Include a concise reason and optional context. "

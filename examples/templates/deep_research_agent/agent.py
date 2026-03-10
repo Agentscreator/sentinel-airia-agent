@@ -204,7 +204,7 @@ class DeepResearchAgent:
         """Set up the executor with all components."""
         from pathlib import Path
 
-        storage_path = Path.home() / ".nova-nexa" / "agents" / "deep_research_agent"
+        storage_path = Path.home() / ".sentinel" / "agents" / "deep_research_agent"
         storage_path.mkdir(parents=True, exist_ok=True)
 
         self._tool_registry = ToolRegistry()

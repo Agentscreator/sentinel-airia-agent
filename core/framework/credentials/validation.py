@@ -18,7 +18,7 @@ def ensure_credential_key_env() -> None:
 
     Priority chain for each credential:
       1. ``os.environ`` (already set — nothing to do)
-      2. Dedicated file storage (``~/.nova-nexa/secrets/`` or encrypted store)
+      2. Dedicated file storage (``~/.sentinel/secrets/`` or encrypted store)
       3. Shell config fallback (``~/.zshrc`` / ``~/.bashrc``) for backward compat
 
     Boot order matters: NEXA_CREDENTIAL_KEY must load BEFORE ADEN_API_KEY
@@ -157,7 +157,7 @@ class CredentialValidationResult:
             for c in aden_nc:
                 lines.append(
                     f"  {c.env_var} for {_label(c)}"
-                    f"\n    Connect this integration at nova-nexa.dev first."
+                    f"\n    Connect this integration at airia.com first."
                 )
         lines.append("\nIf you've already set up credentials, restart your terminal to load them.")
         return "\n".join(lines)

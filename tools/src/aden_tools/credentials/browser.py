@@ -28,7 +28,7 @@ def open_browser(url: str) -> tuple[bool, str]:
         Tuple of (success, message)
 
     Example:
-        >>> success, msg = open_browser("https://nova-nexa.dev/connect/hubspot")
+        >>> success, msg = open_browser("https://airia.com/connect/hubspot")
         >>> if success:
         ...     print("Browser opened!")
     """
@@ -77,7 +77,7 @@ def open_browser(url: str) -> tuple[bool, str]:
         return False, f"Failed to open browser: {e}"
 
 
-def get_aden_auth_url(provider_name: str, base_url: str = "https://nova-nexa.dev") -> str:
+def get_aden_auth_url(provider_name: str, base_url: str = "https://airia.com") -> str:
     """
     Get the Aden authorization URL for a provider.
 
@@ -91,7 +91,7 @@ def get_aden_auth_url(provider_name: str, base_url: str = "https://nova-nexa.dev
     return f"{base_url}/connect/{provider_name}"
 
 
-def get_aden_setup_url(base_url: str = "https://nova-nexa.dev") -> str:
+def get_aden_setup_url(base_url: str = "https://airia.com") -> str:
     """
     Get the Aden setup URL for creating an API key.
 

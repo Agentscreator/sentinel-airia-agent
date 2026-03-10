@@ -135,7 +135,7 @@ class TwitterNewsAgent:
         )
 
     def _setup(self):
-        self._storage_path = Path.home() / ".nova-nexa" / "agents" / "twitter_news_agent"
+        self._storage_path = Path.home() / ".sentinel" / "agents" / "twitter_news_agent"
         self._storage_path.mkdir(parents=True, exist_ok=True)
         self._tool_registry = ToolRegistry()
         mcp_config = Path(__file__).parent / "mcp_servers.json"

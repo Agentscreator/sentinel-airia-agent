@@ -1,6 +1,6 @@
-# Contributing to Nova Nexa
+# Contributing to Sentinel
 
-Thank you for your interest in contributing to Nova Nexa! This document provides guidelines and information for contributors. We’re especially looking for help building tools, integrations (), and example agents for the framework. If you’re interested in extending its functionality, this is the perfect place to start. 
+Thank you for your interest in contributing to Sentinel! This document provides guidelines and information for contributors. We’re especially looking for help building tools, integrations, and example compliance agents for the framework. If you’re interested in extending its functionality, this is the perfect place to start.
 
 ## Code of Conduct
 
@@ -34,8 +34,8 @@ You may submit PRs without prior assignment for:
 ## Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/nova-nexa.git`
-3. Add the upstream repository: `git remote add upstream https://github.com/nova-nexa/nova-nexa.git`
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/sentinel-airia-agent.git`
+3. Add the upstream repository: `git remote add upstream https://github.com/Agentscreator/sentinel-airia-agent.git`
 4. Sync with upstream to ensure you're starting from the latest code:
    ```bash
    git fetch upstream
@@ -157,7 +157,7 @@ PYTHONPATH=exports uv run python -m agent_name test
 
 ## Contributor License Agreement
 
-By submitting a Pull Request, you agree that your contributions will be licensed under the Nova Nexa license.
+By submitting a Pull Request, you agree that your contributions will be licensed under the Sentinel license.
 
 ## Questions?
 

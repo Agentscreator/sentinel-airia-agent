@@ -1,1 +1,1 @@
-"""HTTP API server for the Nova Nexa agent framework."""
+"""HTTP API server for the Sentinel agent framework."""

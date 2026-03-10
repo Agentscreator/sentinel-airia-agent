@@ -36,7 +36,7 @@ ATTIO_CREDENTIALS = {
         api_key_instructions="""To get an Attio API key:
 1. Go to Attio Settings > Developers > Access tokens
 2. Click "Generate new token"
-3. Name your token (e.g., "Nova Nexa Agent")
+3. Name your token (e.g., "Sentinel Agent")
 4. Select required scopes:
    - record_permission:read-write
    - object_configuration:read

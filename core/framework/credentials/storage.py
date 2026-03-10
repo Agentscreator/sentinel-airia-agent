@@ -111,12 +111,12 @@ class EncryptedFileStorage(CredentialStorage):
     If not set, a new key is generated (and must be persisted for data recovery).
 
     Example:
-        storage = EncryptedFileStorage("~/.nova-nexa/credentials")
+        storage = EncryptedFileStorage("~/.sentinel/credentials")
         storage.save(credential)
         credential = storage.load("brave_search")
     """
 
-    DEFAULT_PATH = "~/.nova-nexa/credentials"
+    DEFAULT_PATH = "~/.sentinel/credentials"
 
     def __init__(
         self,
@@ -128,7 +128,7 @@ class EncryptedFileStorage(CredentialStorage):
         Initialize encrypted storage.
 
         Args:
-            base_path: Directory for credential files. Defaults to ~/.nova-nexa/credentials.
+            base_path: Directory for credential files. Defaults to ~/.sentinel/credentials.
             encryption_key: 32-byte Fernet key. If None, reads from env var.
             key_env_var: Environment variable containing encryption key
         """
@@ -462,7 +462,7 @@ class CompositeStorage(CredentialStorage):
 
     Example:
         storage = CompositeStorage(
-            primary=EncryptedFileStorage("~/.nova-nexa/credentials"),
+            primary=EncryptedFileStorage("~/.sentinel/credentials"),
             fallbacks=[EnvVarStorage({"brave_search": "BRAVE_SEARCH_API_KEY"})]
         )
     """

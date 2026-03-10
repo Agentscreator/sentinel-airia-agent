@@ -14,7 +14,7 @@
 
 ## File Template Errors
 7. **Wrong import paths** — Use `from framework.graph import ...`, NOT `from core.framework.graph import ...`.
-8. **Missing storage path** — Agent class must set `self._storage_path = Path.home() / ".nova-nexa" / "agents" / "agent_name"`.
+8. **Missing storage path** — Agent class must set `self._storage_path = Path.home() / ".sentinel" / "agents" / "agent_name"`.
 9. **Missing mcp_servers.json** — Without this, the agent has no tools at runtime.
 10. **Bare `python` command** — Use `"command": "uv"` with args `["run", "python", ...]`.
 

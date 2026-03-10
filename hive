@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Wrapper script for the Nova Nexa CLI.
+# Wrapper script for the Sentinel CLI.
 # Uses uv to run the nexa command in the project's virtual environment.
 #
 # Usage:
@@ -35,11 +35,11 @@ fi
 
 cd "$SCRIPT_DIR"
 
-# Verify this is a valid Nova Nexa project directory
+# Verify this is a valid Sentinel project directory
 if [ ! -f "$SCRIPT_DIR/pyproject.toml" ] || [ ! -d "$SCRIPT_DIR/core" ]; then
-    echo "Error: Not a valid Nova Nexa project directory: $SCRIPT_DIR" >&2
+    echo "Error: Not a valid Sentinel project directory: $SCRIPT_DIR" >&2
     echo "" >&2
-    echo "The nexa CLI must be run from a Nova Nexa project root." >&2
+    echo "The sentinel CLI must be run from a Sentinel project root." >&2
     echo "Expected files: pyproject.toml, core/" >&2
     exit 1
 fi

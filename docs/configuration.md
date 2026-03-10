@@ -5,14 +5,14 @@ Aden Hive is a Python-based agent framework. Configuration is handled through en
 ## Configuration Overview
 
 ```
-~/.nova-nexa/configuration.json  (global defaults: provider, model, max_tokens)
+~/.sentinel/configuration.json  (global defaults: provider, model, max_tokens)
 Environment variables        (API keys, runtime flags)
 Agent config.py              (per-agent settings: model, tools, storage)
 pyproject.toml               (package metadata and dependencies)
 .mcp.json                    (MCP server connections)
 ```
 
-## Global Configuration (~/.nova-nexa/configuration.json)
+## Global Configuration (~/.sentinel/configuration.json)
 
 The `quickstart.sh` script creates this file during setup. It stores the default LLM provider, model, and max_tokens used by all agents unless overridden in an agent's own `config.py`.
 
@@ -66,7 +66,7 @@ export EXA_API_KEY="..."
 # Run agents without LLM calls (structure-only validation)
 export MOCK_MODE=1
 
-# Fernet encryption key for credential store at ~/.nova-nexa/credentials
+# Fernet encryption key for credential store at ~/.sentinel/credentials
 export HIVE_CREDENTIAL_KEY="your-fernet-key"
 
 # Custom agent storage path (default: /tmp)
@@ -88,7 +88,7 @@ CONFIG = {
 }
 ```
 
-If `model` or `max_tokens` are omitted, the agent loads defaults from `~/.nova-nexa/configuration.json`.
+If `model` or `max_tokens` are omitted, the agent loads defaults from `~/.sentinel/configuration.json`.
 
 ### Agent Graph Specification
 

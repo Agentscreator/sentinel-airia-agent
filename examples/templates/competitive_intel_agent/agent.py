@@ -228,7 +228,7 @@ class CompetitiveIntelAgent:
         """
         from pathlib import Path
 
-        storage_path = Path.home() / ".nova-nexa" / "agents" / "competitive_intel_agent"
+        storage_path = Path.home() / ".sentinel" / "agents" / "competitive_intel_agent"
         storage_path.mkdir(parents=True, exist_ok=True)
 
         self._event_bus = EventBus()

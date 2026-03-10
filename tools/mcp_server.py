@@ -99,7 +99,7 @@ async def health_check(request: Request) -> PlainTextResponse:
 @mcp.custom_route("/", methods=["GET"])
 async def index(request: Request) -> PlainTextResponse:
     """Landing page for browser visits."""
-    return PlainTextResponse("Welcome to the Nova Nexa MCP Server")
+    return PlainTextResponse("Welcome to the Sentinel MCP Server")
 
 
 def main() -> None:

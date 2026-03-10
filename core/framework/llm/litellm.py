@@ -125,7 +125,7 @@ EMPTY_STREAM_MAX_RETRIES = 3
 EMPTY_STREAM_RETRY_DELAY = 1.0  # seconds
 
 # Directory for dumping failed requests
-FAILED_REQUESTS_DIR = Path.home() / ".nova-nexa" / "failed_requests"
+FAILED_REQUESTS_DIR = Path.home() / ".sentinel" / "failed_requests"
 
 
 def _estimate_tokens(model: str, messages: list[dict]) -> tuple[int, str]:

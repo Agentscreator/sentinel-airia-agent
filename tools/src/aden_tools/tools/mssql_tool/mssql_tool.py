@@ -1,5 +1,5 @@
 """
-MSSQL Tool - Professional SQL Server database operations for Nova Nexa.
+MSSQL Tool - Professional SQL Server database operations for Sentinel.
 
 Provides tools for:
 - Executing SELECT queries

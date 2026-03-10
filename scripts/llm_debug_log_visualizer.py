@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Open a browser-based viewer for Nova Nexa LLM debug JSONL sessions.
+"""Open a browser-based viewer for Sentinel LLM debug JSONL sessions.
 
 Usage:
     uv run --no-project scripts/llm_debug_log_visualizer.py
@@ -37,8 +37,8 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--logs-dir",
         type=Path,
-        default=Path.home() / ".nova-nexa" / "llm_logs",
-        help="Directory containing Nova Nexa LLM debug JSONL files.",
+        default=Path.home() / ".sentinel" / "llm_logs",
+        help="Directory containing Sentinel LLM debug JSONL files.",
     )
     parser.add_argument(
         "--session",
@@ -209,7 +209,7 @@ def _render_html(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nova Nexa LLM Debug Viewer</title>
+  <title>Sentinel LLM Debug Viewer</title>
   <style>
     :root {{
       --bg: #efe6d8;
@@ -552,14 +552,14 @@ def _render_html(
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
-        <h1>Nova Nexa Debug</h1>
+        <h1>Sentinel Debug</h1>
         <p>Pick a session in the browser and inspect prompts, inputs, outputs, and tool activity turn by turn.</p>
       </div>
       <input id="sessionSearch" type="search" placeholder="Filter sessions">
       <div class="setup-note">
         <h3>Logging status</h3>
-        <p>LLM turn logging is always on. If this list is empty, run Nova Nexa once and refresh after the session produces turns.</p>
-        <pre>~/.nova-nexa/llm_logs</pre>
+        <p>LLM turn logging is always on. If this list is empty, run Sentinel once and refresh after the session produces turns.</p>
+        <pre>~/.sentinel/llm_logs</pre>
       </div>
       <div class="session-list" id="sessionList"></div>
     </aside>

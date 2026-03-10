@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Verification script for Nova Nexa Framework MCP Server
+Verification script for Sentinel Framework MCP Server
 
 This script checks if the MCP server is properly installed and configured.
 """

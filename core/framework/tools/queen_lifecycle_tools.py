@@ -1370,7 +1370,7 @@ def register_queen_lifecycle_tools(
                 {
                     "count": len(credentials),
                     "credentials": credentials,
-                    "location": "~/.nova-nexa/credentials",
+                    "location": "~/.sentinel/credentials",
                 },
                 default=str,
             )

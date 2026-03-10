@@ -151,7 +151,7 @@ class MeetingScheduler:
         )
 
     def _setup(self):
-        self._storage_path = Path.home() / ".nova-nexa" / "agents" / "meeting_scheduler"
+        self._storage_path = Path.home() / ".sentinel" / "agents" / "meeting_scheduler"
         self._storage_path.mkdir(parents=True, exist_ok=True)
         self._tool_registry = ToolRegistry()
         mcp_config = Path(__file__).parent / "mcp_servers.json"

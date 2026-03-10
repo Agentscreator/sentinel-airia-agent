@@ -386,7 +386,7 @@ class ChatRepl(Vertical):
     def attach_pdf(self, path: Path) -> None:
         """Validate and stage a PDF file for the next message.
 
-        Copies the PDF to ~/.nova-nexa/assets/ and stores the path. The agent's
+        Copies the PDF to ~/.sentinel/assets/ and stores the path. The agent's
         pdf_read tool handles text extraction at runtime.
 
         Called by /attach <path> or by the native file dialog.
@@ -400,9 +400,9 @@ class ChatRepl(Vertical):
             self._write_history("[bold red]Error:[/bold red] Only PDF files are supported")
             return
 
-        # Copy to ~/.nova-nexa/assets/, deduplicating like a normal filesystem:
+        # Copy to ~/.sentinel/assets/, deduplicating like a normal filesystem:
         # resume.pdf → resume(1).pdf → resume(2).pdf
-        assets_dir = Path.home() / ".nova-nexa" / "assets"
+        assets_dir = Path.home() / ".sentinel" / "assets"
         assets_dir.mkdir(parents=True, exist_ok=True)
         dest = assets_dir / path.name
         counter = 1

@@ -1,7 +1,7 @@
 import os
 
 # Use user home directory for workspaces
-WORKSPACES_DIR = os.path.expanduser("~/.nova-nexa/workdir/workspaces")
+WORKSPACES_DIR = os.path.expanduser("~/.sentinel/workdir/workspaces")
 
 
 def get_secure_path(path: str, workspace_id: str, agent_id: str, session_id: str) -> str:

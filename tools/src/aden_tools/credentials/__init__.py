@@ -12,7 +12,7 @@ Usage:
     from framework.credentials import CredentialStore
 
     # With encrypted storage (production)
-    store = CredentialStore.with_encrypted_storage()  # defaults to ~/.nova-nexa/credentials
+    store = CredentialStore.with_encrypted_storage()  # defaults to ~/.sentinel/credentials
     credentials = CredentialStoreAdapter(store)
 
     # With composite storage (encrypted primary + env fallback)

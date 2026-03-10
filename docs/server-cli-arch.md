@@ -128,7 +128,7 @@ Executes the agent graph node-by-node. Completely unaware of whether it was invo
 All storage subsystems are shared — sessions, checkpoints, and logs written via CLI are readable via the HTTP server and vice versa.
 
 ```
-~/.nova-nexa/agents/{agent_name}/
+~/.sentinel/agents/{agent_name}/
 ├── sessions/                          # SessionStore
 │   └── session_YYYYMMDD_HHMMSS_{uuid}/
 │       ├── state.json                 # Session state
@@ -496,7 +496,7 @@ The session reuse is managed by the timer/event handler closures in `AgentRuntim
 Secondary graphs have fully isolated storage under `graphs/{graph_id}/` to prevent any interference with the primary worker's sessions, logs, and conversations.
 
 ```
-~/.nova-nexa/agents/{agent_name}/
+~/.sentinel/agents/{agent_name}/
 +-- sessions/                                    # Primary graph only
 |   +-- session_YYYYMMDD_HHMMSS_{uuid}/
 |       +-- state.json

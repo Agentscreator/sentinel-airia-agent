@@ -1,4 +1,4 @@
-"""Runtime configuration for Nova Nexa Coder agent."""
+"""Runtime configuration for Sentinel Coder agent."""
 
 import json
 from dataclasses import dataclass, field
@@ -6,9 +6,9 @@ from pathlib import Path
 
 
 def _load_preferred_model() -> str:
-    """Load preferred model from ~/.nova-nexa/configuration.json (or legacy ~/.hive/)."""
+    """Load preferred model from ~/.sentinel/configuration.json (or legacy ~/.hive/)."""
     for config_path in [
-        Path.home() / ".nova-nexa" / "configuration.json",
+        Path.home() / ".sentinel" / "configuration.json",
         Path.home() / ".hive" / "configuration.json",
     ]:
         if config_path.exists():
@@ -20,8 +20,8 @@ def _load_preferred_model() -> str:
                     return f"{llm['provider']}/{llm['model']}"
             except Exception:
                 pass
-    # Default to Amazon Nova Pro for orchestration
-    return "bedrock/amazon.nova-pro-v1:0"
+    # Default to Airia Pro for orchestration
+    return "airia/airia-pro"
 
 
 @dataclass
@@ -38,17 +38,17 @@ default_config = RuntimeConfig()
 
 @dataclass
 class AgentMetadata:
-    name: str = "Nova Nexa Coder"
+    name: str = "Sentinel Coder"
     version: str = "1.0.0"
     description: str = (
-        "Native coding agent powered by Amazon Nova Pro that builds production-ready "
-        "Nova Nexa agent packages from natural language specifications. Produces "
+        "Native coding agent powered by Airia Pro that builds production-ready "
+        "Sentinel compliance agent packages from natural language specifications. Produces "
         "complete Python packages with goals, nodes, edges, system prompts, "
-        "MCP configuration, and tests. Worker nodes use Nova Micro for cost efficiency."
+        "MCP configuration, and tests. Worker nodes use Airia Fast for cost efficiency."
     )
     intro_message: str = (
-        "I'm Nova Nexa Coder — I build agents powered by Amazon Nova. Describe "
-        "what kind of agent you want to create and I'll design, implement, and "
+        "I'm Sentinel Coder — I build compliance agents powered by Airia. Describe "
+        "what kind of compliance agent you want to create and I'll design, implement, and "
         "validate it for you."
     )
 

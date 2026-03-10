@@ -12,7 +12,7 @@ Usage:
 
     # Use with credential store
     store = CredentialStore(
-        storage=EncryptedFileStorage(),  # defaults to ~/.nova-nexa/credentials
+        storage=EncryptedFileStorage(),  # defaults to ~/.sentinel/credentials
         providers=[provider],
     )
 

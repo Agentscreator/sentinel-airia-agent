@@ -693,7 +693,7 @@ class AgentRunner:
 
     @staticmethod
     def _resolve_default_model() -> str:
-        """Resolve the default model from ~/.nova-nexa/configuration.json."""
+        """Resolve the default model from ~/.sentinel/configuration.json."""
         return get_preferred_model()
 
     def __init__(
@@ -722,7 +722,7 @@ class AgentRunner:
             goal: Loaded Goal object
             mock_mode: If True, use mock LLM responses
             storage_path: Path for runtime storage (defaults to temp)
-            model: Model to use (reads from agent config or ~/.nova-nexa/configuration.json if None)
+            model: Model to use (reads from agent config or ~/.sentinel/configuration.json if None)
             intro_message: Optional greeting shown to user on TUI load
             runtime_config: Optional AgentRuntimeConfig (webhook settings, etc.)
             interactive: If True (default), offer interactive credential setup on failure.
@@ -752,9 +752,9 @@ class AgentRunner:
             self._storage_path = storage_path
             self._temp_dir = None
         else:
-            # Use persistent storage in ~/.nova-nexa/agents/{agent_name}/
+            # Use persistent storage in ~/.sentinel/agents/{agent_name}/
             home = Path.home()
-            default_storage = home / ".nova-nexa" / "agents" / agent_path.name
+            default_storage = home / ".sentinel" / "agents" / agent_path.name
             default_storage.mkdir(parents=True, exist_ok=True)
             self._storage_path = default_storage
             self._temp_dir = None
@@ -855,7 +855,7 @@ class AgentRunner:
         Args:
             agent_path: Path to agent folder
             mock_mode: If True, use mock LLM responses
-            storage_path: Path for runtime storage (defaults to ~/.nova-nexa/agents/{name})
+            storage_path: Path for runtime storage (defaults to ~/.sentinel/agents/{name})
             model: LLM model to use (reads from agent's default_config if None)
             interactive: If True (default), offer interactive credential setup.
                 Set to False from TUI callers that handle setup via their own UI.

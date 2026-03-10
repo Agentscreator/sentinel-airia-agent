@@ -11,7 +11,7 @@ The agent is deeply integrated with the framework: it can discover available MCP
 ### New: `hive_coder` agent (`core/framework/agents/hive_coder/`)
 - **`agent.py`** — Goal with 4 success criteria and 4 constraints, single-node graph, `HiveCoderAgent` class with full runtime lifecycle (start/stop/trigger_and_wait)
 - **`nodes/__init__.py`** — Single `coder` EventLoopNode with a comprehensive system prompt covering coding mandates, tool discovery, meta-agent capabilities, node count rules, implementation templates, and a 6-phase workflow
-- **`config.py`** — RuntimeConfig with auto-detection of preferred model from `~/.nova-nexa/configuration.json`
+- **`config.py`** — RuntimeConfig with auto-detection of preferred model from `~/.sentinel/configuration.json`
 - **`__main__.py`** — Click CLI with `run`, `tui`, `info`, `validate`, and `shell` subcommands
 - **`reference/`** — Framework guide, file templates, and anti-patterns docs embedded as agent reference material
 

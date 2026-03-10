@@ -28,7 +28,7 @@ This replaces the static tools reference. The LLM now discovers tools dynamicall
 
 **`list_agents()`**
 
-Scan `exports/` for agent packages and `~/.nova-nexa/agents/` for runtime data. Returns agent names, descriptions (from `__init__.py`), and session counts. Gives the LLM awareness of what already exists.
+Scan `exports/` for agent packages and `~/.sentinel/agents/` for runtime data. Returns agent names, descriptions (from `__init__.py`), and session counts. Gives the LLM awareness of what already exists.
 
 ### 3-7. Session & Checkpoint Inspection
 
@@ -40,7 +40,7 @@ Ported from the former `agent_builder_server.py`. Pure filesystem reads — JSON
 | `list_agent_checkpoints(agent_name, session_id)` | List checkpoints for debugging |
 | `get_agent_checkpoint(agent_name, session_id, checkpoint_id?)` | Load a checkpoint's full state |
 
-**Key difference from the old agent-builder server:** These tools accept `agent_name` (e.g. `"deep_research_agent"`) instead of raw `agent_work_dir` paths. They resolve to `~/.nova-nexa/agents/{agent_name}/` internally. Friendlier for the LLM.
+**Key difference from the old agent-builder server:** These tools accept `agent_name` (e.g. `"deep_research_agent"`) instead of raw `agent_work_dir` paths. They resolve to `~/.sentinel/agents/{agent_name}/` internally. Friendlier for the LLM.
 
 ### 8. Test Execution
 
@@ -106,5 +106,5 @@ Replace static tools list with a note to use `discover_mcp_tools()` instead.
 1. MCP server starts with all 15 tools (7 existing + 8 new)
 2. `discover_mcp_tools()` connects to hive-tools and returns real tool schemas
 3. Agent validation passes (`default_agent.validate()`)
-4. Session tools work against existing data in `~/.nova-nexa/agents/`
+4. Session tools work against existing data in `~/.sentinel/agents/`
 5. Smoke test: launch in TUI, ask it to discover tools

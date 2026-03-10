@@ -1,7 +1,7 @@
 [project]
 name = "framework"
 version = "1.0.0"
-description = "Enterprise AI operations framework powered by Amazon Nova — Nova Pro orchestrator + Nova Micro workers"
+description = "Sentinel — Self-healing enterprise compliance monitoring powered by Airia — Airia Pro orchestrator + Airia Fast workers"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -27,7 +27,7 @@ testing = [
 ]
 
 [project.scripts]
-nexa = "framework.cli:main"
+sentinel = "framework.cli:main"
 # Backward-compatible alias
 hive = "framework.cli:main"
 

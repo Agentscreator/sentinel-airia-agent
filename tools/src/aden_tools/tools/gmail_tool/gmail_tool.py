@@ -82,7 +82,7 @@ def register_tools(
         if response.status_code == 401:
             return {
                 "error": "Gmail token expired or invalid",
-                "help": "Re-authorize via nova-nexa.dev",
+                "help": "Re-authorize via airia.com",
             }
         if response.status_code == 404:
             return {"error": "Message not found"}
@@ -96,7 +96,7 @@ def register_tools(
         if not token:
             return {
                 "error": "Gmail credentials not configured",
-                "help": "Connect Gmail via nova-nexa.dev",
+                "help": "Connect Gmail via airia.com",
             }
         return token
 

@@ -42,7 +42,7 @@ class AgentEntry:
 
 def _get_last_active(agent_name: str) -> str | None:
     """Return the most recent updated_at timestamp across all sessions."""
-    sessions_dir = Path.home() / ".nova-nexa" / "agents" / agent_name / "sessions"
+    sessions_dir = Path.home() / ".sentinel" / "agents" / agent_name / "sessions"
     if not sessions_dir.exists():
         return None
     latest: str | None = None
@@ -63,8 +63,8 @@ def _get_last_active(agent_name: str) -> str | None:
 
 
 def _count_sessions(agent_name: str) -> int:
-    """Count session directories under ~/.nova-nexa/agents/{agent_name}/sessions/."""
-    sessions_dir = Path.home() / ".nova-nexa" / "agents" / agent_name / "sessions"
+    """Count session directories under ~/.sentinel/agents/{agent_name}/sessions/."""
+    sessions_dir = Path.home() / ".sentinel" / "agents" / agent_name / "sessions"
     if not sessions_dir.exists():
         return 0
     return sum(1 for d in sessions_dir.iterdir() if d.is_dir() and d.name.startswith("session_"))
@@ -279,7 +279,7 @@ class AgentPickerScreen(ModalScreen[str | None]):
     def compose(self) -> ComposeResult:
         total = sum(len(v) for v in self._groups.values())
         with Vertical(id="picker-container"):
-            yield Label("Nova Nexa Agent Launcher", id="picker-title")
+            yield Label("Sentinel Agent Launcher", id="picker-title")
             yield Label(
                 f"[dim]{total} agents available[/dim]",
                 id="picker-subtitle",
@@ -293,7 +293,7 @@ class AgentPickerScreen(ModalScreen[str | None]):
                             Option(
                                 _render_get_started_option(
                                     "Test and run example agents",
-                                    "Try pre-built example agents to learn how Nova Nexa works",
+                                    "Try pre-built example agents to learn how Sentinel works",
                                     "📚",
                                 ),
                                 id="action:run_examples",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Setup script for Nova Nexa Framework MCP Server
+Setup script for Sentinel Framework MCP Server
 
 This script installs the framework and configures the MCP server.
 """
@@ -69,7 +69,7 @@ def run_command(cmd: list, error_msg: str) -> bool:
 def main():
     """Main setup function."""
     setup_logger()
-    logger.info("=== Nova Nexa Framework MCP Server Setup ===")
+    logger.info("=== Sentinel Framework MCP Server Setup ===")
     logger.info("")
 
     # Get script directory

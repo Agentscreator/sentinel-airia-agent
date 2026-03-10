@@ -77,7 +77,7 @@ from framework.runtime.execution_stream import EntryPointSpec
 runtime = create_agent_runtime(
     graph=graph,
     goal=goal,
-    storage_path=Path("~/.nova-nexa/agents/my_agent"),
+    storage_path=Path("~/.sentinel/agents/my_agent"),
     entry_points=[
         EntryPointSpec(id="default", name="Default", entry_node="start", trigger_type="manual"),
     ],
@@ -159,7 +159,7 @@ In headless mode, `AgentRunner` subscribes to `CLIENT_OUTPUT_DELTA` and `CLIENT_
 ## Storage Layout
 
 ```
-~/.nova-nexa/agents/{agent_name}/
+~/.sentinel/agents/{agent_name}/
   sessions/
     session_YYYYMMDD_HHMMSS_{uuid}/
       state.json              # Session state (status, memory, progress)

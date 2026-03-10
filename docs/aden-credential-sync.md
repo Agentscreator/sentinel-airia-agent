@@ -20,7 +20,7 @@ The Aden server handles OAuth2 authorization code flows (user login, consent, to
 │  │  ┌────────────────────┐  ┌────────────────────────────┐  │   │
 │  │  │EncryptedFileStorage│  │    AdenSyncProvider        │  │   │
 │  │  │  (local cache)     │  │  - Fetches from Aden       │  │   │
-│  │  │ ~/.nova-nexa/credentials│  │  - Delegates refresh       │  │   │
+│  │  │ ~/.sentinel/credentials│  │  - Delegates refresh       │  │   │
 │  │  └────────────────────┘  │  - Reports usage           │  │   │
 │  │                          └─────────────┬──────────────┘  │   │
 │  └────────────────────────────────────────┼─────────────────┘   │
@@ -426,7 +426,7 @@ client = AdenCredentialClient(AdenClientConfig(
 provider = AdenSyncProvider(client=client)
 
 store = CredentialStore(
-    storage=EncryptedFileStorage(),  # ~/.nova-nexa/credentials
+    storage=EncryptedFileStorage(),  # ~/.sentinel/credentials
     providers=[provider],
     auto_refresh=True,
 )
@@ -476,7 +476,7 @@ def create_tenant_store(tenant_id: str) -> CredentialStore:
     provider = AdenSyncProvider(client=client, provider_id=f"aden_{tenant_id}")
 
     return CredentialStore(
-        storage=EncryptedFileStorage(f"~/.nova-nexa/credentials/{tenant_id}"),
+        storage=EncryptedFileStorage(f"~/.sentinel/credentials/{tenant_id}"),
         providers=[provider],
     )
 ```

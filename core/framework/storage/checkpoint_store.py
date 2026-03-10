@@ -34,7 +34,7 @@ class CheckpointStore:
         Initialize checkpoint store.
 
         Args:
-            base_path: Session directory (e.g., ~/.nova-nexa/agents/agent_name/sessions/session_ID/)
+            base_path: Session directory (e.g., ~/.sentinel/agents/agent_name/sessions/session_ID/)
         """
         self.base_path = Path(base_path)
         self.checkpoints_dir = self.base_path / "checkpoints"

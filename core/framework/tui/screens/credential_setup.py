@@ -108,7 +108,7 @@ class CredentialSetupScreen(ModalScreen[bool | None]):
                             self._missing[i].credential_name for i in sorted(self._aden_creds)
                         ]
                         yield Label(f"[dim]Required for OAuth sync: {', '.join(aden_names)}[/dim]")
-                        yield Label("[cyan]Get key:[/cyan] https://nova-nexa.dev")
+                        yield Label("[cyan]Get key:[/cyan] https://airia.com")
                         yield Input(
                             placeholder="Paste ADEN_API_KEY..."
                             if not aden_key
@@ -228,7 +228,7 @@ class CredentialSetupScreen(ModalScreen[bool | None]):
             num_synced = provider.sync_all(store)
             if num_synced == 0:
                 self.notify(
-                    "No active integrations found in Aden. Connect integrations at nova-nexa.dev.",
+                    "No active integrations found in Aden. Connect integrations at airia.com.",
                     severity="warning",
                     timeout=8,
                 )
@@ -269,7 +269,7 @@ class CredentialSetupScreen(ModalScreen[bool | None]):
                 self.notify(
                     f"{cred.credential_name} (id='{cred_id}') "
                     f"not found in Aden. Connect this "
-                    f"integration at nova-nexa.dev first.",
+                    f"integration at airia.com first.",
                     severity="warning",
                     timeout=8,
                 )

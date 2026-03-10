@@ -1,19 +1,19 @@
 """
-Command-line interface for Nova Nexa.
+Command-line interface for Sentinel.
 
 Usage:
-    nexa run exports/my-agent --input '{"key": "value"}'
-    nexa info exports/my-agent
-    nexa validate exports/my-agent
-    nexa list exports/
-    nexa dispatch exports/ --input '{"key": "value"}'
-    nexa shell exports/my-agent
+    sentinel run exports/my-agent --input '{"key": "value"}'
+    sentinel info exports/my-agent
+    sentinel validate exports/my-agent
+    sentinel list exports/
+    sentinel dispatch exports/ --input '{"key": "value"}'
+    sentinel shell exports/my-agent
 
 Testing commands:
-    nexa test-run <agent_path> --goal <goal_id>
-    nexa test-debug <agent_path> <test_name>
-    nexa test-list <agent_path>
-    nexa test-stats <agent_path>
+    sentinel test-run <agent_path> --goal <goal_id>
+    sentinel test-debug <agent_path> <test_name>
+    sentinel test-list <agent_path>
+    sentinel test-stats <agent_path>
 """
 
 import argparse
@@ -68,13 +68,13 @@ def main():
     _configure_paths()
 
     parser = argparse.ArgumentParser(
-        prog="nexa",
-        description="Nova Nexa hive - Enterprise AI operations powered by Amazon Nova",
+        prog="sentinel",
+        description="Sentinel - Self-healing enterprise compliance monitoring powered by Airia",
     )
     parser.add_argument(
         "--model",
         default=None,
-        help="LLM model to use (defaults to Amazon Nova Pro via Bedrock)",
+        help="LLM model to use (defaults to Airia Pro)",
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)

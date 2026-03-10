@@ -46,7 +46,7 @@ class HashiCorpVaultStorage(CredentialStorage):
             url="https://vault.example.com:8200",
             token="hvs.xxx",  # Or use VAULT_TOKEN env var
             mount_point="secret",
-            path_prefix="nova-nexa/credentials"
+            path_prefix="sentinel/credentials"
         )
 
         store = CredentialStore(storage=storage)
@@ -74,7 +74,7 @@ class HashiCorpVaultStorage(CredentialStorage):
         url: str,
         token: str | None = None,
         mount_point: str = "secret",
-        path_prefix: str = "nova-nexa/credentials",
+        path_prefix: str = "sentinel/credentials",
         namespace: str | None = None,
         verify_ssl: bool = True,
     ):

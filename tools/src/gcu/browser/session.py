@@ -77,12 +77,12 @@ Object.defineProperty(navigator, 'languages', {
 });
 """
 
-# Branded start page HTML with Nova Nexa theme
+# Branded start page HTML with Sentinel theme
 NEXA_START_PAGE = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nova Nexa Browser</title>
+    <title>Sentinel Browser</title>
     <style>
         :root {
             --primary: #FAC43B;
@@ -145,7 +145,7 @@ NEXA_START_PAGE = """
 </head>
 <body>
     <div class="logo">🐝</div>
-    <h1>Nova Nexa Browser</h1>
+    <h1>Sentinel Browser</h1>
     <p>Ready for automation</p>
     <div class="status">
         <span class="dot"></span>
@@ -225,7 +225,7 @@ class BrowserSession:
     - Console message capture per tab
 
     When persistent=True, the browser profile is stored at:
-    ~/.nova-nexa/agents/{agent_name}/browser/{profile}/
+    ~/.sentinel/agents/{agent_name}/browser/{profile}/
     """
 
     profile: str
@@ -327,7 +327,7 @@ class BrowserSession:
         Args:
             headless: Run browser in headless mode (default: True)
             persistent: Use persistent profile for cookies/storage (default: True)
-                When True, browser data persists at ~/.nova-nexa/agents/{agent}/browser/{profile}/
+                When True, browser data persists at ~/.sentinel/agents/{agent}/browser/{profile}/
 
         Returns:
             Dict with start status, including user_data_dir and cdp_port when persistent
@@ -364,10 +364,10 @@ class BrowserSession:
                 if storage_path_str:
                     self.user_data_dir = Path(storage_path_str) / "browser" / self.profile
                 else:
-                    # Fallback to ~/.nova-nexa/agents/{agent}/browser/{profile}
+                    # Fallback to ~/.sentinel/agents/{agent}/browser/{profile}
                     self.user_data_dir = (
                         Path.home()
-                        / ".nova-nexa"
+                        / ".sentinel"
                         / "agents"
                         / agent_name
                         / "browser"
@@ -411,7 +411,7 @@ class BrowserSession:
                     if self.active_page_id is None:
                         self.active_page_id = target_id
 
-                # Set branded Nova Nexa start page on the first blank page
+                # Set branded Sentinel start page on the first blank page
                 if self.context.pages:
                     first_page = self.context.pages[0]
                     url = first_page.url

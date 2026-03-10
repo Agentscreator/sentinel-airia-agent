@@ -49,7 +49,7 @@ class ToolRegistry:
     CONTEXT_PARAMS = frozenset({"workspace_id", "agent_id", "session_id", "data_dir"})
 
     # Credential directory used for change detection
-    _CREDENTIAL_DIR = Path("~/.nova-nexa/credentials/credentials").expanduser()
+    _CREDENTIAL_DIR = Path("~/.sentinel/credentials/credentials").expanduser()
 
     def __init__(self):
         self._tools: dict[str, RegisteredTool] = {}
@@ -344,7 +344,7 @@ class ToolRegistry:
 
         On Windows, passing cwd to subprocess can cause WinError 267. We use cwd=None
         and absolute script paths when the server runs a .py script from the tools dir.
-        If the resolved cwd doesn't exist (e.g. config from ~/.nova-nexa/agents/), fall back
+        If the resolved cwd doesn't exist (e.g. config from ~/.sentinel/agents/), fall back
         to Path.cwd() / "tools".
         """
         config = dict(server_config)

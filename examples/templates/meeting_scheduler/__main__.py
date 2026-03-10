@@ -65,7 +65,7 @@ def tui():
     async def run_tui():
         agent = MeetingScheduler()
         agent._tool_registry = ToolRegistry()
-        storage = Path.home() / ".nova-nexa" / "agents" / "meeting_scheduler"
+        storage = Path.home() / ".sentinel" / "agents" / "meeting_scheduler"
         storage.mkdir(parents=True, exist_ok=True)
         mcp_cfg = Path(__file__).parent / "mcp_servers.json"
         if mcp_cfg.exists():

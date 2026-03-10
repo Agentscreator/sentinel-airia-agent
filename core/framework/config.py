@@ -1,6 +1,6 @@
-"""Shared Nova Nexa configuration utilities.
+"""Shared Sentinel configuration utilities.
 
-Centralises reading of ~/.nova-nexa/configuration.json so that the runner
+Centralises reading of ~/.sentinel/configuration.json so that the runner
 and every agent template share one implementation instead of copy-pasting
 helper functions.
 """
@@ -19,7 +19,7 @@ from framework.graph.edge import DEFAULT_MAX_TOKENS
 # ---------------------------------------------------------------------------
 
 # Support both new and legacy config paths for backward compatibility
-NEXA_CONFIG_FILE = Path.home() / ".nova-nexa" / "configuration.json"
+NEXA_CONFIG_FILE = Path.home() / ".sentinel" / "configuration.json"
 LEGACY_CONFIG_FILE = Path.home() / ".hive" / "configuration.json"
 # Expose as HIVE_CONFIG_FILE for backward compatibility with existing code
 HIVE_CONFIG_FILE = NEXA_CONFIG_FILE
@@ -36,7 +36,7 @@ def _resolve_config_file() -> Path:
 
 
 def get_nexa_config() -> dict[str, Any]:
-    """Load Nova Nexa configuration from ~/.nova-nexa/configuration.json."""
+    """Load Sentinel configuration from ~/.sentinel/configuration.json."""
     config_file = _resolve_config_file()
     if not config_file.exists():
         return {}
@@ -60,16 +60,16 @@ get_hive_config = get_nexa_config
 # Derived helpers
 # ---------------------------------------------------------------------------
 
-# Default models: Nova Pro for orchestrator, Nova Micro for workers
-NOVA_PRO_MODEL = "bedrock/amazon.nova-pro-v1:0"
-NOVA_MICRO_MODEL = "bedrock/amazon.nova-micro-v1:0"
-NOVA_LITE_MODEL = "bedrock/amazon.nova-lite-v1:0"
+# Default models: Airia Pro for orchestrator, Airia Fast for workers
+NOVA_PRO_MODEL = "airia/airia-pro"
+NOVA_MICRO_MODEL = "airia/airia-fast"
+NOVA_LITE_MODEL = "airia/airia-lite"
 
 
 def get_preferred_model() -> str:
     """Return the user's preferred LLM model string.
 
-    Defaults to Amazon Nova Pro for orchestration tasks.
+    Defaults to Airia Pro for orchestration tasks.
     """
     llm = get_nexa_config().get("llm", {})
     if llm.get("provider") and llm.get("model"):
@@ -80,7 +80,7 @@ def get_preferred_model() -> str:
 def get_worker_model() -> str:
     """Return the model for worker nodes.
 
-    Defaults to Amazon Nova Micro for cost-efficient execution.
+    Defaults to Airia Fast for cost-efficient compliance scanning.
     """
     llm = get_nexa_config().get("llm", {})
     worker_model = llm.get("worker_model")
@@ -105,11 +105,10 @@ def get_api_key() -> str | None:
     """
     llm = get_nexa_config().get("llm", {})
 
-    # AWS Bedrock: uses boto3 credential chain, no explicit API key needed
+    # Airia: uses AIRIA_API_KEY
     provider = llm.get("provider", "")
-    if provider == "bedrock" or provider.startswith("amazon"):
-        # Bedrock uses AWS credentials (env vars, ~/.aws/credentials, IAM role)
-        return os.environ.get("AWS_ACCESS_KEY_ID")
+    if provider == "airia":
+        return os.environ.get("AIRIA_API_KEY")
 
     # Claude Code subscription: read OAuth token directly
     if llm.get("use_claude_code_subscription"):
@@ -157,11 +156,10 @@ def get_llm_extra_kwargs() -> dict[str, Any]:
     """Return extra kwargs for LiteLLMProvider (e.g. OAuth headers, AWS region)."""
     llm = get_nexa_config().get("llm", {})
 
-    # AWS Bedrock: pass region configuration
+    # Airia: pass api_base if configured
     provider = llm.get("provider", "")
-    if provider == "bedrock" or provider.startswith("amazon"):
-        region = llm.get("aws_region", os.environ.get("AWS_DEFAULT_REGION", "us-east-1"))
-        return {"aws_region_name": region}
+    if provider == "airia":
+        return {}
 
     if llm.get("use_claude_code_subscription"):
         api_key = get_api_key()
@@ -199,7 +197,7 @@ def get_llm_extra_kwargs() -> dict[str, Any]:
 
 @dataclass
 class RuntimeConfig:
-    """Agent runtime configuration loaded from ~/.nova-nexa/configuration.json."""
+    """Agent runtime configuration loaded from ~/.sentinel/configuration.json."""
 
     model: str = field(default_factory=get_preferred_model)
     worker_model: str = field(default_factory=get_worker_model)

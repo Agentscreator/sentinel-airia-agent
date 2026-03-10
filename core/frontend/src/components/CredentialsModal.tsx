@@ -203,14 +203,14 @@ export default function CredentialsModal({
 
     if (row.id === "aden_api_key" && row.adenSupported) {
       // Aden Platform key — open Aden so user can grab key from Developers tab
-      window.open("https://nova-nexa.dev/", "_blank", "noopener");
+      window.open("https://airia.com/", "_blank", "noopener");
       pendingAdenAuth.current = true;
       return;
     }
 
     if (row.adenSupported) {
       // OAuth credential — redirect to Aden platform
-      window.open("https://nova-nexa.dev/", "_blank", "noopener");
+      window.open("https://airia.com/", "_blank", "noopener");
       return;
     }
 

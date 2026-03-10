@@ -1,6 +1,6 @@
 # Tools
 
-Nova Nexa agents interact with external services through **tools** — functions exposed via MCP (Model Context Protocol) servers. The main tool server lives at `tools/mcp_server.py` and registers integrations from the `aden_tools` package.
+Sentinel agents interact with external services through **tools** — functions exposed via MCP (Model Context Protocol) servers. The main tool server lives at `tools/mcp_server.py` and registers integrations from the `aden_tools` package.
 
 ## Verified vs Unverified
 

@@ -1,11 +1,11 @@
 {
-  "name": "nova-nexa",
+  "name": "sentinel",
   "version": "1.0.0",
   "private": true,
-  "description": "Nova Nexa - Enterprise AI operations powered by Amazon Nova",
+  "description": "Sentinel - Self-healing enterprise compliance monitoring powered by Airia",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nova-nexa/nova-nexa.git"
+    "url": "https://github.com/Agentscreator/sentinel-airia-agent.git"
   },
   "license": "Apache-2.0",
   "scripts": {

@@ -1,6 +1,6 @@
 # Examples
 
-This directory contains two types of examples to help you build agents with the Nova Nexa framework.
+This directory contains two types of examples to help you build agents with the Sentinel framework.
 
 ## Recipes vs Templates
 
@@ -15,7 +15,7 @@ Use recipes when you want to:
 
 ### [templates/](templates/) — "Ready to eat"
 
-A template is a **working agent scaffold** that follows the standard Nova Nexa export structure. Copy the folder, rename it, swap in your own prompts and tools, and run it.
+A template is a **working agent scaffold** that follows the standard Sentinel export structure. Copy the folder, rename it, swap in your own prompts and tools, and run it.
 
 Use templates when you want to:
 - Get a new agent running quickly

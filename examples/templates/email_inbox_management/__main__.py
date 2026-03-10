@@ -96,7 +96,7 @@ def tui(mock, verbose, debug):
         agent._event_bus = EventBus()
         agent._tool_registry = ToolRegistry()
 
-        storage_path = Path.home() / ".nova-nexa" / "agents" / "inbox_management"
+        storage_path = Path.home() / ".sentinel" / "agents" / "inbox_management"
         storage_path.mkdir(parents=True, exist_ok=True)
 
         mcp_config_path = Path(__file__).parent / "mcp_servers.json"

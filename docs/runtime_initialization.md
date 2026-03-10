@@ -262,7 +262,7 @@ QUEEN STARTUP SEQUENCE:
 _start_queen(session, worker_identity, initial_prompt) (line 394)
   │
   ├─ Create queen directory [line 410-411]
-  │  └─ ~/.nova-nexa/queen/session/{session.id}/
+  │  └─ ~/.sentinel/queen/session/{session.id}/
   │
   ├─ Register MCP coding tools [line 414-424]
   │  └─ Load from hive_coder/mcp_servers.json

@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 # NEXA_DEBUG_EVENTS — write every published event to a JSONL file.
 #
 # Set the env var to any truthy value to enable:
-#   NEXA_DEBUG_EVENTS=1          → writes to ~/.nova-nexa/event_logs/<ts>.jsonl
+#   NEXA_DEBUG_EVENTS=1          → writes to ~/.sentinel/event_logs/<ts>.jsonl
 #   NEXA_DEBUG_EVENTS=/tmp/ev    → writes to that exact directory
 #
 # Each line is a full JSON serialisation of the AgentEvent.
@@ -45,7 +45,7 @@ def _open_event_log() -> IO[str] | None:
         return None
     raw = _DEBUG_EVENTS_RAW
     if raw.lower() in ("1", "true", "full"):
-        log_dir = Path.home() / ".nova-nexa" / "event_logs"
+        log_dir = Path.home() / ".sentinel" / "event_logs"
     else:
         log_dir = Path(raw)
     log_dir.mkdir(parents=True, exist_ok=True)

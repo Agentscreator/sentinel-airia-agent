@@ -23,7 +23,7 @@ from framework.llm.litellm import LiteLLMProvider  # noqa: E402
 def make_provider() -> LiteLLMProvider:
     cfg = RuntimeConfig()
     if not cfg.api_key:
-        print("ERROR: No API key configured in ~/.nova-nexa/configuration.json")
+        print("ERROR: No API key configured in ~/.sentinel/configuration.json")
         sys.exit(1)
     print(f"Model : {cfg.model}")
     print(f"Base  : {cfg.api_base}")

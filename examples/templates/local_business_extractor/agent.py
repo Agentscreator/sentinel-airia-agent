@@ -112,7 +112,7 @@ class LocalBusinessExtractor:
 
     def _setup(self):
         self._storage_path = (
-            Path.home() / ".nova-nexa" / "agents" / "local_business_extractor"
+            Path.home() / ".sentinel" / "agents" / "local_business_extractor"
         )
         self._storage_path.mkdir(parents=True, exist_ok=True)
         self._tool_registry = ToolRegistry()

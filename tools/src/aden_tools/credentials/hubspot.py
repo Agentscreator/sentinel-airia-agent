@@ -34,7 +34,7 @@ HUBSPOT_CREDENTIALS = {
         api_key_instructions="""To get a HubSpot Private App token:
 1. Go to HubSpot Settings > Integrations > Private Apps
 2. Click "Create a private app"
-3. Name your app (e.g., "Nova Nexa Agent")
+3. Name your app (e.g., "Sentinel Agent")
 4. Go to the "Scopes" tab and enable:
    - crm.objects.contacts.read
    - crm.objects.contacts.write

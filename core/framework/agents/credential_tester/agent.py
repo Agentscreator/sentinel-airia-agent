@@ -554,7 +554,7 @@ class CredentialTesterAgent:
         if self._selected_account is None:
             raise RuntimeError("No account selected. Call select_account() first.")
 
-        self._storage_path = Path.home() / ".nova-nexa" / "agents" / "credential_tester"
+        self._storage_path = Path.home() / ".sentinel" / "agents" / "credential_tester"
         self._storage_path.mkdir(parents=True, exist_ok=True)
 
         self._tool_registry = ToolRegistry()

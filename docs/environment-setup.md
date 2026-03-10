@@ -18,7 +18,7 @@ This will:
 - Check Python version (requires 3.11+)
 - Install the core framework package (`framework`)
 - Install the tools package (`aden_tools`)
-- Initialize encrypted credential store (`~/.nova-nexa/credentials`)
+- Initialize encrypted credential store (`~/.sentinel/credentials`)
 - Configure default LLM provider
 - Fix package compatibility issues (openai + litellm)
 - Verify all installations
@@ -515,7 +515,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 ### Optional Configuration
 
 ```bash
-# Fernet encryption key for credential store at ~/.nova-nexa/credentials
+# Fernet encryption key for credential store at ~/.sentinel/credentials
 export HIVE_CREDENTIAL_KEY="your-fernet-key"
 
 # Agent storage location (default: /tmp)

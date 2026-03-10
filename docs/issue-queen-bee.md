@@ -30,7 +30,7 @@ Build **Hive Coder** (codename "Queen Bee") — a framework-native coding agent 
 |------|---------|
 | `agent.py` | Goal, single-node graph, `HiveCoderAgent` class |
 | `nodes/__init__.py` | `coder` EventLoopNode with comprehensive system prompt |
-| `config.py` | RuntimeConfig with `~/.nova-nexa/configuration.json` auto-detection |
+| `config.py` | RuntimeConfig with `~/.sentinel/configuration.json` auto-detection |
 | `__main__.py` | Click CLI (`run`, `tui`, `info`, `validate`, `shell`) |
 | `reference/framework_guide.md` | Node types, edges, patterns, async entry points |
 | `reference/file_templates.md` | Complete code templates for every agent file |

@@ -71,7 +71,7 @@ async def handle_list_nodes(request: web.Request) -> web.Response:
 
         state_path = (
             Path.home()
-            / ".nova-nexa"
+            / ".sentinel"
             / "agents"
             / session.worker_path.name
             / "sessions"

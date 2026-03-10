@@ -104,7 +104,7 @@ def mock_mode():
 async def runner(tmp_path_factory, mock_mode):
     """Create an AgentRunner using the canonical runtime path.
 
-    Uses tmp_path_factory for storage so tests don't pollute ~/.nova-nexa/agents/.
+    Uses tmp_path_factory for storage so tests don't pollute ~/.sentinel/agents/.
     Goes through AgentRunner.load() -> _setup() -> AgentRuntime, the same
     path as ``nexa run``.
     """

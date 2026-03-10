@@ -1,4 +1,4 @@
-"""Test fixtures for Nova Nexa Coder agent."""
+"""Test fixtures for Sentinel Coder agent."""
 
 import sys
 from pathlib import Path

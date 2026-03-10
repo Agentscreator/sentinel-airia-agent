@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# quickstart.sh - Interactive onboarding for Nova Nexa Agent Framework
+# quickstart.sh - Interactive onboarding for Sentinel — Compliance Agent Framework powered by Airia
 #
 # An interactive setup wizard that:
 # 1. Installs Python dependencies
@@ -83,7 +83,7 @@ echo -e "${BOLD}        N O V A   N E X A${NC}"
 echo ""
 echo -e "${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}${DIM}⬡${NC}${YELLOW}⬢${NC}"
 echo ""
-echo -e "${DIM}  Enterprise AI operations powered by Amazon Nova${NC}"
+echo -e "${DIM}  Enterprise AI operations powered by Airia${NC}"
 echo ""
 echo "This wizard will help you set up everything you need"
 echo "to build and run goal-driven AI agents."
@@ -628,7 +628,7 @@ else
 fi
 
 # Configuration directory
-NEXA_CONFIG_DIR="$HOME/.nova-nexa"
+NEXA_CONFIG_DIR="$HOME/.sentinel"
 NEXA_CONFIG_FILE="$NEXA_CONFIG_DIR/configuration.json"
 
 # Detect user's shell rc file
@@ -1111,7 +1111,7 @@ if { [ -z "$SUBSCRIPTION_MODE" ] || [ "$SUBSCRIPTION_MODE" = "minimax_code" ]; }
             # Remove old export line(s) for this env var from shell rc, then append new
             sed -i.bak "/^export ${SELECTED_ENV_VAR}=/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
             echo "" >> "$SHELL_RC_FILE"
-            echo "# Nova Nexa Framework - $PROVIDER_NAME API key" >> "$SHELL_RC_FILE"
+            echo "# Sentinel Framework - $PROVIDER_NAME API key" >> "$SHELL_RC_FILE"
             echo "export $SELECTED_ENV_VAR=\"$API_KEY\"" >> "$SHELL_RC_FILE"
             export "$SELECTED_ENV_VAR=$API_KEY"
             echo ""
@@ -1134,7 +1134,7 @@ if { [ -z "$SUBSCRIPTION_MODE" ] || [ "$SUBSCRIPTION_MODE" = "minimax_code" ]; }
                 # Undo the save so the user can retry cleanly
                 sed -i.bak "/^export ${SELECTED_ENV_VAR}=/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
                 # Remove the comment line we just added
-                sed -i.bak "/^# Nova Nexa Framework - $PROVIDER_NAME API key$/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
+                sed -i.bak "/^# Sentinel Framework - $PROVIDER_NAME API key$/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
                 unset "$SELECTED_ENV_VAR"
                 echo ""
                 read -r -p "  Press Enter to try again: " _
@@ -1176,7 +1176,7 @@ if [ "$SUBSCRIPTION_MODE" = "zai_code" ]; then
         if [ -n "$API_KEY" ]; then
             sed -i.bak "/^export ZAI_API_KEY=/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
             echo "" >> "$SHELL_RC_FILE"
-            echo "# Nova Nexa Framework - ZAI Code subscription API key" >> "$SHELL_RC_FILE"
+            echo "# Sentinel Framework - ZAI Code subscription API key" >> "$SHELL_RC_FILE"
             echo "export ZAI_API_KEY=\"$API_KEY\"" >> "$SHELL_RC_FILE"
             export ZAI_API_KEY="$API_KEY"
             echo ""
@@ -1194,7 +1194,7 @@ if [ "$SUBSCRIPTION_MODE" = "zai_code" ]; then
                 echo -e "  ${YELLOW}⚠ $HC_MSG${NC}"
                 # Undo the save so the user can retry cleanly
                 sed -i.bak "/^export ZAI_API_KEY=/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
-                sed -i.bak "/^# Nova Nexa Framework - ZAI Code subscription API key$/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
+                sed -i.bak "/^# Sentinel Framework - ZAI Code subscription API key$/d" "$SHELL_RC_FILE" && rm -f "${SHELL_RC_FILE}.bak"
                 unset ZAI_API_KEY
                 ZAI_CRED_DETECTED=false
                 echo ""
@@ -1242,7 +1242,7 @@ if [ -n "$SELECTED_PROVIDER_ID" ]; then
         save_configuration "$SELECTED_PROVIDER_ID" "$SELECTED_ENV_VAR" "$SELECTED_MODEL" "$SELECTED_MAX_TOKENS" > /dev/null
     fi
     echo -e "${GREEN}⬢${NC}"
-    echo -e "  ${DIM}~/.nova-nexa/configuration.json${NC}"
+    echo -e "  ${DIM}~/.sentinel/configuration.json${NC}"
 fi
 
 echo ""
@@ -1284,9 +1284,9 @@ echo ""
 echo -e "${DIM}The credential store encrypts API keys and secrets for your agents.${NC}"
 echo ""
 
-NEXA_CRED_DIR="$HOME/.nova-nexa/credentials"
+NEXA_CRED_DIR="$HOME/.sentinel/credentials"
 
-NEXA_KEY_FILE="$HOME/.nova-nexa/secrets/credential_key"
+NEXA_KEY_FILE="$HOME/.sentinel/secrets/credential_key"
 
 # Check if NEXA_CREDENTIAL_KEY already exists (from env, file, or shell rc)
 if [ -n "$NEXA_CREDENTIAL_KEY" ]; then
@@ -1328,7 +1328,7 @@ if [ -n "$NEXA_CREDENTIAL_KEY" ]; then
         echo '{"credentials": {}, "version": "1.0"}' > "$NEXA_CRED_DIR/metadata/index.json"
     fi
 
-    echo -e "${GREEN}  ✓ Credential store initialized at ~/.nova-nexa/credentials/${NC}"
+    echo -e "${GREEN}  ✓ Credential store initialized at ~/.sentinel/credentials/${NC}"
 
     # Verify the store works
     echo -n "  Verifying credential store... "
@@ -1388,7 +1388,7 @@ fi
 
 
 echo -n "  ⬡ credential store... "
-if [ -n "$NEXA_CREDENTIAL_KEY" ] && [ -d "$HOME/.nova-nexa/credentials/credentials" ]; then
+if [ -n "$NEXA_CREDENTIAL_KEY" ] && [ -d "$HOME/.sentinel/credentials/credentials" ]; then
     echo -e "${GREEN}ok${NC}"
 else
     echo -e "${YELLOW}--${NC}"
@@ -1480,7 +1480,7 @@ fi
 # Show credential store status
 if [ -n "$NEXA_CREDENTIAL_KEY" ]; then
     echo -e "${BOLD}Credential Store:${NC}"
-    echo -e "  ${GREEN}⬢${NC} ${DIM}~/.nova-nexa/credentials/${NC}  (encrypted)"
+    echo -e "  ${GREEN}⬢${NC} ${DIM}~/.sentinel/credentials/${NC}  (encrypted)"
     echo ""
 fi
 
@@ -1508,7 +1508,7 @@ fi
 if [ "$CODEX_AVAILABLE" = true ]; then
     echo -e "${BOLD}Build a New Agent (Codex):${NC}"
     echo ""
-    echo -e "  Codex ${GREEN}${CODEX_VERSION}${NC} is available. To use it with Nova Nexa:"
+    echo -e "  Codex ${GREEN}${CODEX_VERSION}${NC} is available. To use it with Sentinel:"
     echo -e "  1. Restart your terminal (or open a new one)"
     echo -e "  2. Run: ${CYAN}codex${NC}"
     echo -e "  3. Type: ${CYAN}use hive${NC}"

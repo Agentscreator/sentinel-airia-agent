@@ -229,7 +229,7 @@ class EmailInboxManagementAgent:
 
     def _setup(self, mock_mode=False) -> None:
         """Set up the agent runtime with sessions, checkpoints, and logging."""
-        self._storage_path = Path.home() / ".nova-nexa" / "agents" / "email_inbox_management"
+        self._storage_path = Path.home() / ".sentinel" / "agents" / "email_inbox_management"
         self._storage_path.mkdir(parents=True, exist_ok=True)
 
         self._event_bus = EventBus()

@@ -129,7 +129,7 @@ class StatusBar(Container):
 
 
 class NexaTUI(App):
-    TITLE = "Nova Nexa Dashboard"
+    TITLE = "Sentinel Dashboard"
     COMMAND_PALETTE_BINDING = "ctrl+o"
     CSS = """
     Screen {
@@ -274,7 +274,7 @@ class NexaTUI(App):
 
     async def on_mount(self) -> None:
         """Called when app starts."""
-        self.title = "Nova Nexa Dashboard"
+        self.title = "Sentinel Dashboard"
         self._setup_logging_queue()
         self.is_ready = True
 
@@ -446,7 +446,7 @@ class NexaTUI(App):
         self.notify(f"Agent loaded: {agent_name}", severity="information", timeout=3)
 
         # Load health judge + queen for worker agents (skip for hive_coder itself)
-        if agent_name != "hive_coder" and agent_name != "nova_nexa_coder":
+        if agent_name != "hive_coder" and agent_name != "sentinel_coder":
             await self._load_judge_and_queen(runner._storage_path)
 
     async def _load_judge_and_queen(self, storage_path) -> None:
@@ -499,7 +499,7 @@ class NexaTUI(App):
             )
 
             # 2. Storage dirs — global, not per-agent.
-            nexa_home = Path.home() / ".nova-nexa"
+            nexa_home = Path.home() / ".sentinel"
             queen_dir = nexa_home / "queen" / "session" / session_id
             queen_dir.mkdir(parents=True, exist_ok=True)
 
@@ -754,7 +754,7 @@ class NexaTUI(App):
             if "not connected" in error_msg or "Aden" in error_msg:
                 self.notify(
                     "ADEN_API_KEY is set but OAuth integrations "
-                    "are not connected. Visit nova-nexa.dev "
+                    "are not connected. Visit airia.com "
                     "to connect them, then reload the agent.",
                     severity="warning",
                     timeout=15,

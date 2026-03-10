@@ -1,7 +1,7 @@
 """
 Outcome Aggregator - Aggregates outcomes across streams for goal evaluation.
 
-The goal-driven nature of Nova Nexa means we need to track whether
+The goal-driven nature of Sentinel means we need to track whether
 concurrent executions collectively achieve the goal.
 """
 

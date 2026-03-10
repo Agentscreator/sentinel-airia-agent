@@ -267,7 +267,7 @@ class CredentialSetupSession:
             generate_and_save_credential_key()
             self._print(
                 f"{Colors.GREEN}✓ Encryption key saved to "
-                f"~/.nova-nexa/secrets/credential_key{Colors.NC}"
+                f"~/.sentinel/secrets/credential_key{Colors.NC}"
             )
             return True
         except Exception as e:
@@ -315,7 +315,7 @@ class CredentialSetupSession:
                 (
                     "aden",
                     "Use Aden Platform (OAuth)",
-                    "Secure OAuth2 flow via nova-nexa.dev",
+                    "Secure OAuth2 flow via airia.com",
                 )
             )
 
@@ -399,7 +399,7 @@ class CredentialSetupSession:
         aden_key = os.environ.get("ADEN_API_KEY")
         if not aden_key:
             self._print("You need an Aden API key to use this method.")
-            self._print(f"{Colors.CYAN}Get one at:{Colors.NC} https://nova-nexa.dev")
+            self._print(f"{Colors.CYAN}Get one at:{Colors.NC} https://airia.com")
             self._print("")
 
             try:
@@ -441,7 +441,7 @@ class CredentialSetupSession:
                 self._print(
                     f"{Colors.YELLOW}⚠ {cred.credential_name} not found in Aden account.{Colors.NC}"
                 )
-                self._print("Please connect this integration on https://nova-nexa.dev first.")
+                self._print("Please connect this integration on https://airia.com first.")
                 return False
         except Exception as e:
             self._print(f"{Colors.RED}Failed to sync from Aden: {e}{Colors.NC}")
@@ -479,7 +479,7 @@ class CredentialSetupSession:
                 keys={key_name: CredentialKey(name=key_name, value=SecretStr(value))},
             )
             store.save_credential(cred_obj)
-            self._print(f"{Colors.GREEN}✓ Stored in ~/.nova-nexa/credentials/{Colors.NC}")
+            self._print(f"{Colors.GREEN}✓ Stored in ~/.sentinel/credentials/{Colors.NC}")
         except Exception as e:
             self._print(f"{Colors.YELLOW}⚠ Could not store in credential store: {e}{Colors.NC}")
 

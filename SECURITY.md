@@ -14,7 +14,7 @@ We take security vulnerabilities seriously. If you discover a security issue, pl
 
 **Please do NOT report security vulnerabilities through public GitHub issues.**
 
-Instead, please send an email to security@nova-nexa.dev with:
+Instead, please send an email to security@airia.com with:
 
 1. A description of the vulnerability
 2. Steps to reproduce the issue

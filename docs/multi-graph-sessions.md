@@ -77,7 +77,7 @@ Update existing methods:
 
 ### Storage Layout
 ```
-~/.nova-nexa/agents/hive_coder/sessions/{session_id}/
+~/.sentinel/agents/hive_coder/sessions/{session_id}/
     state.json                  ← SHARED across all graphs
     data/                       ← SHARED data directory
     conversations/coder/        ← hive_coder conversations

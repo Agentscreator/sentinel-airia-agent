@@ -216,7 +216,7 @@ validate_agent_credentials(nodes)
 ### What Happens
 
 - Refresh is transparent to the user
-- New token written to `~/.nova-nexa/credentials/credentials/{id}.enc`
+- New token written to `~/.sentinel/credentials/credentials/{id}.enc`
 - In-memory cache updated
 - Logged: `INFO: Refreshed credential '{id}' via Aden server`
 
@@ -224,7 +224,7 @@ validate_agent_credentials(nodes)
 
 ## Scenario 4: Credential Expired and Cannot Be Refreshed
 
-OAuth refresh token is revoked (user disconnected integration on nova-nexa.dev, or
+OAuth refresh token is revoked (user disconnected integration on airia.com, or
 the refresh token itself expired).
 
 ### Flow: Refresh Attempt
@@ -277,7 +277,7 @@ If the token expires **during agent execution** (after validation passed):
 
 ## Scenario 5: Credential Store File Sabotaged (Wrong Content)
 
-File `~/.nova-nexa/credentials/credentials/{id}.enc` replaced with valid Fernet-encrypted
+File `~/.sentinel/credentials/credentials/{id}.enc` replaced with valid Fernet-encrypted
 content encoding wrong JSON (e.g., `{"bad": "data"}`).
 
 ### Flow
@@ -324,7 +324,7 @@ User sees credential setup screen as if the credential was never configured.
 
 ## Scenario 6: Credential Store File Corrupted (Binary Garbage)
 
-File `~/.nova-nexa/credentials/credentials/{id}.enc` contains random binary data.
+File `~/.sentinel/credentials/credentials/{id}.enc` contains random binary data.
 
 ### Flow
 
@@ -384,7 +384,7 @@ The exception from primary propagates BEFORE checking the fallback.
 ## Scenario 7: ADEN_API_KEY Set But Vendor OAuth Not Authorized
 
 User has valid `ADEN_API_KEY`. Agent needs HubSpot/Google. User has NOT connected
-that integration on nova-nexa.dev.
+that integration on airia.com.
 
 ### Flow
 
@@ -419,7 +419,7 @@ validate_agent_credentials(nodes)
   │ CredentialError raised:
   │   "Aden integrations not connected (ADEN_API_KEY is set but OAuth tokens unavailable):
   │      HUBSPOT_ACCESS_TOKEN for hubspot tools
-  │      Connect this integration at nova-nexa.dev first."
+  │      Connect this integration at airia.com first."
   │   exc.failed_cred_names = []   ← empty!
 ```
 
@@ -452,7 +452,7 @@ TUI retries `_do_load_agent()` → validation fails again → **LOOP.**
 
 1. Setup screen appears, ADEN_API_KEY field shown
 2. User clicks Save
-3. Warning: "hubspot not found in Aden. Connect this integration at nova-nexa.dev first."
+3. Warning: "hubspot not found in Aden. Connect this integration at airia.com first."
 4. Screen dismisses (configured=1 from ADEN_API_KEY)
 5. Agent reload fails → setup screen appears again
 6. Repeat forever
@@ -485,7 +485,7 @@ but the agent still can't load.
 
 ```
 1. os.environ (via EnvVarStorage)           ← WINS if set
-2. ~/.nova-nexa/credentials/credentials/*.enc    ← fallback (only if HIVE_CREDENTIAL_KEY set)
+2. ~/.sentinel/credentials/credentials/*.enc    ← fallback (only if HIVE_CREDENTIAL_KEY set)
 ```
 
 ### During Runtime (`CredentialStoreAdapter.default()`)
@@ -514,7 +514,7 @@ var was only set in the validation process, not persisted).
 ## File Locations on Disk
 
 ```
-~/.nova-nexa/
+~/.sentinel/
   credentials/
     credentials/                            # EncryptedFileStorage base
       {credential_id}.enc                   # Fernet-encrypted JSON

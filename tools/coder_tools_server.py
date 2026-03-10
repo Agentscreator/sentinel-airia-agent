@@ -3,7 +3,7 @@
 Coder Tools MCP Server — OpenCode-inspired coding tools.
 
 Provides rich file I/O, fuzzy-match editing, git snapshots, and shell execution
-for the Nova Nexa coding agent. Modeled after opencode's tool architecture.
+for the Sentinel coding agent. Modeled after opencode's tool architecture.
 
 All paths scoped to a configurable project root for safety.
 
@@ -345,7 +345,7 @@ def list_agent_tools(
 
     Args:
         server_config_path: Path to mcp_servers.json. Default: tools/mcp_servers.json
-            (the standard nova-nexa tools server). Can also point to an agent's config
+            (the standard sentinel tools server). Can also point to an agent's config
             to see what tools that specific agent has access to.
         output_schema: "simple" (default) returns name and description per tool.
             "full" also includes server and input_schema.
@@ -565,7 +565,7 @@ def _validate_agent_tools_impl(agent_path: str) -> dict:
     except ValueError:
         return {
             "error": "agent_path must be inside an allowed directory "
-            "(exports/, examples/, or ~/.nova-nexa/agents/)"
+            "(exports/, examples/, or ~/.sentinel/agents/)"
         }
 
     if not os.path.isdir(resolved):
@@ -696,15 +696,15 @@ def validate_agent_tools(agent_path: str) -> str:
 
 @mcp.tool()
 def list_agents() -> str:
-    """List all Nova Nexa agent packages with runtime session info.
+    """List all Sentinel agent packages with runtime session info.
 
     Scans exports/ for user agents and core/framework/agents/ for framework
-    agents. Checks ~/.nova-nexa/agents/ for runtime data (session counts).
+    agents. Checks ~/.sentinel/agents/ for runtime data (session counts).
 
     Returns:
         JSON list of agents with names, descriptions, source, and session counts
     """
-    hive_agents_dir = Path.home() / ".nova-nexa" / "agents"
+    hive_agents_dir = Path.home() / ".sentinel" / "agents"
     agents = []
     skip = {"__pycache__", "__init__.py", ".git"}
 
@@ -785,8 +785,8 @@ _MAX_TRUNCATE_LEN = 500
 
 
 def _resolve_nexa_agent_path(agent_name: str) -> Path:
-    """Resolve agent_name to ~/.nova-nexa/agents/{agent_name}/."""
-    return Path.home() / ".nova-nexa" / "agents" / agent_name
+    """Resolve agent_name to ~/.sentinel/agents/{agent_name}/."""
+    return Path.home() / ".sentinel" / "agents" / agent_name
 
 
 def _read_session_json(path: Path) -> dict | None:
@@ -1055,7 +1055,7 @@ def _run_agent_tests_impl(
         return {
             "error": (
                 "pytest is not installed or not on PATH. "
-                "Nova Nexa's test runner requires pytest at runtime. "
+                "Sentinel's test runner requires pytest at runtime. "
                 "Install it with: pip install 'framework[testing]' "
                 "or: uv pip install 'framework[testing]'"
             ),
@@ -1506,8 +1506,8 @@ from pathlib import Path
 
 
 def _load_preferred_model() -> str:
-    """Load preferred model from ~/.nova-nexa/configuration.json."""
-    config_path = Path.home() / ".nova-nexa" / "configuration.json"
+    """Load preferred model from ~/.sentinel/configuration.json."""
+    config_path = Path.home() / ".sentinel" / "configuration.json"
     if config_path.exists():
         try:
             with open(config_path) as f:
@@ -1697,7 +1697,7 @@ class {class_name}:
         )
 
     def _setup(self):
-        self._storage_path = Path.home() / ".nova-nexa" / "agents" / "{agent_name}"
+        self._storage_path = Path.home() / ".sentinel" / "agents" / "{agent_name}"
         self._storage_path.mkdir(parents=True, exist_ok=True)
         self._tool_registry = ToolRegistry()
         mcp_config = Path(__file__).parent / "mcp_servers.json"
@@ -1938,12 +1938,12 @@ if __name__ == "__main__":
         "mcp_servers.json",
         json.dumps(
             {
-                "nova-nexa-tools": {
+                "sentinel-tools": {
                     "transport": "stdio",
                     "command": "uv",
                     "args": ["run", "python", "mcp_server.py", "--stdio"],
                     "cwd": "../../tools",
-                    "description": "Nova Nexa tools MCP server",
+                    "description": "Sentinel tools MCP server",
                 }
             },
             indent=2,
@@ -2024,7 +2024,7 @@ def main() -> None:
     PROJECT_ROOT = os.path.abspath(args.project_root) if args.project_root else _find_project_root()
     SNAPSHOT_DIR = os.path.join(
         os.path.expanduser("~"),
-        ".nova-nexa",
+        ".sentinel",
         "snapshots",
         os.path.basename(PROJECT_ROOT),
     )

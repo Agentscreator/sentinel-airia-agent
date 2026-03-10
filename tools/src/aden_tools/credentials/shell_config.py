@@ -106,7 +106,7 @@ def add_env_var_to_shell_config(
     env_var: str,
     value: str,
     shell_type: ShellType | None = None,
-    comment: str = "Added by Nova Nexa credential setup",
+    comment: str = "Added by Sentinel credential setup",
 ) -> tuple[bool, str]:
     """
     Add an environment variable export to shell config.
@@ -189,7 +189,7 @@ def remove_env_var_from_shell_config(
 
             # Skip comment lines that precede the export
             is_hive_comment = stripped.startswith("# Added by Hive")
-            is_nexa_comment = stripped.startswith("# Added by Nova Nexa")
+            is_nexa_comment = stripped.startswith("# Added by Sentinel")
             if is_hive_comment or is_nexa_comment:
                 # Check if next non-empty line is the export
                 for j in range(i + 1, len(lines)):

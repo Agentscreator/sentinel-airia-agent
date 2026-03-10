@@ -13,7 +13,7 @@ Quick Start:
         url="https://vault.example.com:8200",
         # token read from VAULT_TOKEN env var
         mount_point="secret",
-        path_prefix="nova-nexa/agents/prod"
+        path_prefix="sentinel/agents/prod"
     )
 
     # Create credential store with Vault backend
@@ -42,10 +42,10 @@ Vault Configuration:
 
     Grant appropriate policies:
 
-        path "secret/data/nova-nexa/credentials/*" {
+        path "secret/data/sentinel/credentials/*" {
             capabilities = ["create", "read", "update", "delete", "list"]
         }
-        path "secret/metadata/nova-nexa/credentials/*" {
+        path "secret/metadata/sentinel/credentials/*" {
             capabilities = ["list", "delete"]
         }
 """

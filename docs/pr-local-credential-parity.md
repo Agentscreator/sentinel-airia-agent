@@ -23,7 +23,7 @@ Fixes a bug where credentials configured with the existing `store_credential` MC
 - `get_key(credential_id, alias)` — returns raw secret
 - `delete_account(credential_id, alias)` — removes entry
 - `validate_account(credential_id, alias)` — re-runs health check, updates `_status` and `last_refreshed` in-place
-- `default()` classmethod — uses `~/.nova-nexa/credentials`
+- `default()` classmethod — uses `~/.sentinel/credentials`
 
 Storage convention: `{credential_id}/{alias}` as `CredentialObject.id`. Legacy flat entries (`brave_search`, no slash) continue to work — env var fallback is unchanged.
 

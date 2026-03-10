@@ -208,12 +208,12 @@ def register_commands(subparsers: argparse._SubParsersAction) -> None:
     )
     tui_parser.set_defaults(func=cmd_tui)
 
-    # code command (Nova Nexa Coder — framework agent builder)
+    # code command (Sentinel Coder — framework agent builder)
     code_parser = subparsers.add_parser(
         "code",
-        help="Launch Nova Nexa Coder to build agents",
+        help="Launch Sentinel Coder to build agents",
         description=(
-            "Interactive agent builder. Describe what you want and Nova Nexa Coder builds it."
+            "Interactive agent builder. Describe what you want and Sentinel Coder builds it."
         ),
     )
     code_parser.add_argument(
@@ -455,7 +455,7 @@ def _load_resume_state(
         session_state dict for executor, or None if not found
     """
     agent_name = Path(agent_path).name
-    agent_work_dir = Path.home() / ".nova-nexa" / "agents" / agent_name
+    agent_work_dir = Path.home() / ".sentinel" / "agents" / agent_name
     session_dir = agent_work_dir / "sessions" / session_id
 
     if not session_dir.exists():
@@ -1435,7 +1435,7 @@ def cmd_tui(args: argparse.Namespace) -> int:
 
 
 def cmd_code(args: argparse.Namespace) -> int:
-    """Launch Nova Nexa Coder with multi-graph support.
+    """Launch Sentinel Coder with multi-graph support.
 
     Unlike ``_launch_agent_tui``, this sets up graph lifecycle tools and
     assigns ``graph_id="hive_coder"`` so the coder can load, supervise,
@@ -1449,7 +1449,7 @@ def cmd_code(args: argparse.Namespace) -> int:
     hive_coder_path = framework_agents_dir / "hive_coder"
 
     if not (hive_coder_path / "agent.py").exists():
-        print("Error: Nova Nexa Coder agent not found.", file=sys.stderr)
+        print("Error: Sentinel Coder agent not found.", file=sys.stderr)
         return 1
 
     # Ensure framework agents dir is on sys.path for import
@@ -2075,7 +2075,7 @@ def cmd_serve(args: argparse.Namespace) -> int:
         dashboard_url = f"http://{args.host}:{args.port}"
 
         print()
-        print(f"Nova Nexa API server running on {dashboard_url}")
+        print(f"Sentinel API server running on {dashboard_url}")
         if has_frontend:
             print(f"Dashboard: {dashboard_url}")
         print(f"Health: {dashboard_url}/api/health")

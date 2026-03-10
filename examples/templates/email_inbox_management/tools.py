@@ -140,7 +140,7 @@ def _get_access_token(account: str = "") -> str:
 
     raise RuntimeError(
         "Gmail credentials not configured. "
-        "Connect Gmail via nova-nexa.dev or set GOOGLE_ACCESS_TOKEN."
+        "Connect Gmail via airia.com or set GOOGLE_ACCESS_TOKEN."
     )
 
 

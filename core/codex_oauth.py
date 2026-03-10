@@ -68,7 +68,7 @@ def build_authorize_url(state: str, challenge: str) -> str:
             "state": state,
             "id_token_add_organizations": "true",
             "codex_cli_simplified_flow": "true",
-            "originator": "nova-nexa",
+            "originator": "sentinel",
         }
     )
     return f"{AUTHORIZE_URL}?{params}"

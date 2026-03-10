@@ -20,7 +20,7 @@ Quick Start:
 
     # Create store with OAuth2 provider
     store = CredentialStore.with_encrypted_storage(
-        providers=[provider]  # defaults to ~/.nova-nexa/credentials
+        providers=[provider]  # defaults to ~/.sentinel/credentials
     )
 
     # Get token using client credentials

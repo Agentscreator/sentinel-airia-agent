@@ -16,7 +16,7 @@ Read, modify, and manage Gmail messages using the Gmail API v1.
 
 Requires Google OAuth2 via Aden:
 
-1. Connect your Google account at [nova-nexa.dev](https://nova-nexa.dev)
+1. Connect your Google account at [airia.com](https://airia.com)
 2. The `GOOGLE_ACCESS_TOKEN` is managed automatically by the Aden credential system
 
 Required OAuth scopes (configured in Aden):
@@ -71,7 +71,7 @@ gmail_batch_modify_messages(
 
 All tools return error dicts on failure:
 ```python
-{"error": "Gmail token expired or invalid", "help": "Re-authorize via nova-nexa.dev"}
+{"error": "Gmail token expired or invalid", "help": "Re-authorize via airia.com"}
 {"error": "Message not found"}
-{"error": "Gmail credentials not configured", "help": "Connect Gmail via nova-nexa.dev"}
+{"error": "Gmail credentials not configured", "help": "Connect Gmail via airia.com"}
 ```

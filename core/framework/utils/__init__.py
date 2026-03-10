@@ -1,4 +1,4 @@
-"""Utility functions for the Nova Nexa framework."""
+"""Utility functions for the Sentinel framework."""
 
 from framework.utils.io import atomic_write
 

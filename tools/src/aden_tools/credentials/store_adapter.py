@@ -9,7 +9,7 @@ Usage:
     from aden_tools.credentials.store_adapter import CredentialStoreAdapter
 
     # Create new credential store
-    store = CredentialStore.with_encrypted_storage()  # defaults to ~/.nova-nexa/credentials
+    store = CredentialStore.with_encrypted_storage()  # defaults to ~/.sentinel/credentials
 
     # Wrap with adapter for backward compatibility
     credentials = CredentialStoreAdapter(store)

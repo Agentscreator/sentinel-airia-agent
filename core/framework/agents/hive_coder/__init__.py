@@ -1,10 +1,10 @@
 """
-Nova Nexa Coder — Native coding agent that builds Nova Nexa agent packages.
+Sentinel Coder — Native coding agent that builds Sentinel compliance agent packages.
 
-Powered by Amazon Nova Pro for orchestration and reasoning. Deeply understands
+Powered by Airia Pro for orchestration and reasoning. Deeply understands
 the agent framework and produces complete Python packages with goals, nodes,
 edges, system prompts, MCP configuration, and tests from natural language
-specifications. Worker nodes use Nova Micro for cost-efficient execution.
+specifications. Worker nodes use Airia Fast for cost-efficient execution.
 """
 
 from .agent import (

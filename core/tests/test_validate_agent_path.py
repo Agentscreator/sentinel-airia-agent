@@ -106,7 +106,7 @@ class TestValidateAgentPathPositive:
     def test_path_inside_hive_agents(self, tmp_path):
         import framework.server.app as app_module
 
-        hive_root = tmp_path / ".nova-nexa" / "agents"
+        hive_root = tmp_path / ".sentinel" / "agents"
         hive_root.mkdir(parents=True)
         agent_dir = hive_root / "my_agent"
         agent_dir.mkdir()
@@ -219,13 +219,13 @@ class TestValidateAgentPathNegative:
         monkeypatch.setenv("HOME", str(tmp_path))
         monkeypatch.setenv("USERPROFILE", str(tmp_path))
 
-        hive_agents = tmp_path / ".nova-nexa" / "agents"
+        hive_agents = tmp_path / ".sentinel" / "agents"
         hive_agents.mkdir(parents=True)
         agent_dir = hive_agents / "my_agent"
         agent_dir.mkdir()
         app_module._ALLOWED_AGENT_ROOTS = (hive_agents,)
 
-        result = validate_agent_path("~/.nova-nexa/agents/my_agent")
+        result = validate_agent_path("~/.sentinel/agents/my_agent")
         assert result == agent_dir.resolve()
 
 

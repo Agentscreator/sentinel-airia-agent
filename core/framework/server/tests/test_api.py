@@ -196,7 +196,7 @@ def tmp_agent_dir(tmp_path, monkeypatch):
     """
     monkeypatch.setattr(Path, "home", classmethod(lambda cls: tmp_path))
     agent_name = "test_agent"
-    base = tmp_path / ".nova-nexa" / "agents" / agent_name
+    base = tmp_path / ".sentinel" / "agents" / agent_name
     sessions_dir = base / "sessions"
     sessions_dir.mkdir(parents=True)
     return tmp_path, agent_name, base
@@ -589,7 +589,7 @@ class TestResume:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -609,7 +609,7 @@ class TestResume:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -692,7 +692,7 @@ class TestReplay:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -730,7 +730,7 @@ class TestReplay:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -750,7 +750,7 @@ class TestWorkerSessions:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -765,7 +765,7 @@ class TestWorkerSessions:
     @pytest.mark.asyncio
     async def test_list_sessions_empty(self, tmp_agent_dir):
         tmp_path, agent_name, base = tmp_agent_dir
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -779,7 +779,7 @@ class TestWorkerSessions:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -792,7 +792,7 @@ class TestWorkerSessions:
     @pytest.mark.asyncio
     async def test_get_session_not_found(self, tmp_agent_dir):
         tmp_path, agent_name, base = tmp_agent_dir
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -804,7 +804,7 @@ class TestWorkerSessions:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -819,7 +819,7 @@ class TestWorkerSessions:
     @pytest.mark.asyncio
     async def test_delete_session_not_found(self, tmp_agent_dir):
         tmp_path, agent_name, base = tmp_agent_dir
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -831,7 +831,7 @@ class TestWorkerSessions:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -851,7 +851,7 @@ class TestWorkerSessions:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -870,7 +870,7 @@ class TestWorkerSessions:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -886,7 +886,7 @@ class TestMessages:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -911,7 +911,7 @@ class TestMessages:
         session_id, session_dir, state = sample_session
         tmp_path, agent_name, base = tmp_agent_dir
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -933,7 +933,7 @@ class TestMessages:
         session_dir.mkdir(parents=True)
         (session_dir / "state.json").write_text(json.dumps({"status": "completed"}))
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         app = _make_app_with_session(session)
 
         async with TestClient(TestServer(app)) as client:
@@ -1000,7 +1000,7 @@ class TestMessages:
             MockNodeSpec(id="chat_node", name="Chat", client_facing=True),
         ]
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             nodes=nodes,
         )
         session.runner.graph = MockGraphSpec(nodes=nodes)
@@ -1037,7 +1037,7 @@ class TestMessages:
             json.dumps({"seq": 2, "role": "assistant", "content": "response"})
         )
 
-        session = _make_session(tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name)
+        session = _make_session(tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name)
         session.runner = None  # Simulate runner not available
         app = _make_app_with_session(session)
 
@@ -1103,7 +1103,7 @@ class TestGraphNodes:
         nodes, edges = nodes_and_edges
 
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             nodes=nodes,
             edges=edges,
         )
@@ -1212,7 +1212,7 @@ class TestNodeCriteria:
         log_store = RuntimeLogStore(base)
 
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             nodes=nodes,
             edges=edges,
             log_store=log_store,
@@ -1266,7 +1266,7 @@ class TestLogs:
 
         log_store = RuntimeLogStore(base)
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             log_store=log_store,
         )
         app = _make_app_with_session(session)
@@ -1288,7 +1288,7 @@ class TestLogs:
 
         log_store = RuntimeLogStore(base)
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             log_store=log_store,
         )
         app = _make_app_with_session(session)
@@ -1311,7 +1311,7 @@ class TestLogs:
 
         log_store = RuntimeLogStore(base)
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             log_store=log_store,
         )
         app = _make_app_with_session(session)
@@ -1335,7 +1335,7 @@ class TestLogs:
 
         log_store = RuntimeLogStore(base)
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             log_store=log_store,
         )
         app = _make_app_with_session(session)
@@ -1361,7 +1361,7 @@ class TestNodeLogs:
 
         log_store = RuntimeLogStore(base)
         session = _make_session(
-            tmp_dir=tmp_path / ".nova-nexa" / "agents" / agent_name,
+            tmp_dir=tmp_path / ".sentinel" / "agents" / agent_name,
             nodes=nodes,
             edges=edges,
             log_store=log_store,

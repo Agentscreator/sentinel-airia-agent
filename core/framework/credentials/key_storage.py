@@ -1,8 +1,8 @@
 """
 Dedicated file-based storage for bootstrap credentials.
 
-NEXA_CREDENTIAL_KEY -> ~/.nova-nexa/secrets/credential_key  (plain text, chmod 600)
-ADEN_API_KEY        -> ~/.nova-nexa/credentials/             (encrypted via EncryptedFileStorage)
+NEXA_CREDENTIAL_KEY -> ~/.sentinel/secrets/credential_key  (plain text, chmod 600)
+ADEN_API_KEY        -> ~/.sentinel/credentials/             (encrypted via EncryptedFileStorage)
 
 Boot order:
   1. load_credential_key()   -- reads/generates the Fernet key, sets os.environ
@@ -18,7 +18,7 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-CREDENTIAL_KEY_PATH = Path.home() / ".nova-nexa" / "secrets" / "credential_key"
+CREDENTIAL_KEY_PATH = Path.home() / ".sentinel" / "secrets" / "credential_key"
 CREDENTIAL_KEY_ENV_VAR = "NEXA_CREDENTIAL_KEY"
 ADEN_CREDENTIAL_ID = "aden_api_key"
 ADEN_ENV_VAR = "ADEN_API_KEY"
@@ -56,7 +56,7 @@ def load_credential_key() -> str | None:
 
 
 def save_credential_key(key: str) -> Path:
-    """Save NEXA_CREDENTIAL_KEY to ``~/.nova-nexa/secrets/credential_key``.
+    """Save NEXA_CREDENTIAL_KEY to ``~/.sentinel/secrets/credential_key``.
 
     Creates parent dirs with mode 700, writes the file with mode 600.
     Also sets ``os.environ["NEXA_CREDENTIAL_KEY"]``.
@@ -77,7 +77,7 @@ def save_credential_key(key: str) -> Path:
 
 
 def generate_and_save_credential_key() -> str:
-    """Generate a new Fernet key and persist it to ``~/.nova-nexa/secrets/credential_key``.
+    """Generate a new Fernet key and persist it to ``~/.sentinel/secrets/credential_key``.
 
     Returns:
         The generated key string.
@@ -161,7 +161,7 @@ def delete_aden_api_key() -> None:
 
 
 def _read_credential_key_file() -> str | None:
-    """Read the credential key from ``~/.nova-nexa/secrets/credential_key``."""
+    """Read the credential key from ``~/.sentinel/secrets/credential_key``."""
     try:
         if CREDENTIAL_KEY_PATH.is_file():
             value = CREDENTIAL_KEY_PATH.read_text(encoding="utf-8").strip()

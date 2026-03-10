@@ -13,8 +13,8 @@ from pathlib import Path
 
 
 def _load_preferred_model() -> str:
-    """Load preferred model from ~/.nova-nexa/configuration.json."""
-    config_path = Path.home() / ".nova-nexa" / "configuration.json"
+    """Load preferred model from ~/.sentinel/configuration.json."""
+    config_path = Path.home() / ".sentinel" / "configuration.json"
     if config_path.exists():
         try:
             with open(config_path) as f:
@@ -217,7 +217,7 @@ class MyAgent:
         )
 
     def _setup(self):
-        self._storage_path = Path.home() / ".nova-nexa" / "agents" / "my_agent"
+        self._storage_path = Path.home() / ".sentinel" / "agents" / "my_agent"
         self._storage_path.mkdir(parents=True, exist_ok=True)
         self._tool_registry = ToolRegistry()
         mcp_config = Path(__file__).parent / "mcp_servers.json"
@@ -516,7 +516,7 @@ def tui():
     async def run_tui():
         agent = MyAgent()
         agent._tool_registry = ToolRegistry()
-        storage = Path.home() / ".nova-nexa" / "agents" / "my_agent"
+        storage = Path.home() / ".sentinel" / "agents" / "my_agent"
         storage.mkdir(parents=True, exist_ok=True)
         mcp_cfg = Path(__file__).parent / "mcp_servers.json"
         if mcp_cfg.exists(): agent._tool_registry.load_mcp_config(mcp_cfg)

@@ -135,7 +135,7 @@ def tui(verbose: bool, debug: bool) -> None:
         agent._event_bus = EventBus()
         agent._tool_registry = ToolRegistry()
 
-        storage_path = Path.home() / ".nova-nexa" / "agents" / "competitive_intel_agent"
+        storage_path = Path.home() / ".sentinel" / "agents" / "competitive_intel_agent"
         storage_path.mkdir(parents=True, exist_ok=True)
 
         mcp_config_path = Path(__file__).parent / "mcp_servers.json"

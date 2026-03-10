@@ -1,9 +1,9 @@
 """
-Nova Nexa Framework: Enterprise AI operations powered by Amazon Nova.
+Sentinel Framework: Self-healing enterprise compliance monitoring powered by Airia.
 
-An agentic AI framework that uses Amazon Nova Pro as the orchestrator for
-graph generation, failure reasoning, and self-healing, with Nova Micro
-powering high-throughput worker nodes for cost-efficient execution.
+An agentic AI framework that uses Airia Pro as the orchestrator for
+graph generation, failure reasoning, and self-healing, with Airia Fast
+powering high-throughput compliance worker nodes for cost-efficient execution.
 
 The runtime is designed around DECISIONS, not just actions. Every significant
 choice the agent makes is captured with:

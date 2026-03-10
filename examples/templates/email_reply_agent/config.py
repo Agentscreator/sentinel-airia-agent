@@ -6,8 +6,8 @@ from pathlib import Path
 
 
 def _load_preferred_model() -> str:
-    """Load preferred model from ~/.nova-nexa/configuration.json."""
-    config_path = Path.home() / ".nova-nexa" / "configuration.json"
+    """Load preferred model from ~/.sentinel/configuration.json."""
+    config_path = Path.home() / ".sentinel" / "configuration.json"
     if config_path.exists():
         try:
             with open(config_path) as f:

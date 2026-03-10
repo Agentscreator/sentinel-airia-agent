@@ -1,4 +1,4 @@
-"""Agent graph construction for Nova Nexa Agent Builder."""
+"""Agent graph construction for Sentinel Compliance Agent Builder."""
 
 from framework.graph import Constraint, Goal, SuccessCriterion
 from framework.graph.edge import GraphSpec
@@ -8,10 +8,10 @@ from .nodes import coder_node, queen_node
 # Goal definition
 goal = Goal(
     id="nexa-coder",
-    name="Nova Nexa Agent Builder",
+    name="Sentinel Compliance Agent Builder",
     description=(
-        "Build complete, validated Nova Nexa agent packages from natural language "
-        "specifications. Uses Amazon Nova Pro for orchestration and reasoning. "
+        "Build complete, validated Sentinel compliance agent packages from natural language "
+        "specifications. Uses Airia Pro for orchestration and reasoning. "
         "Produces production-ready Python packages with goals, nodes, edges, "
         "system prompts, MCP configuration, and tests."
     ),
@@ -63,7 +63,7 @@ goal = Goal(
         ),
         Constraint(
             id="no-fabricated-tools",
-            description="Only reference tools that exist in nexa-tools MCP",
+            description="Only reference tools that exist in sentinel-tools MCP",
             constraint_type="hard",
             category="correctness",
         ),
@@ -80,10 +80,10 @@ goal = Goal(
             category="quality",
         ),
         Constraint(
-            id="nova-model-strategy",
+            id="airia-model-strategy",
             description=(
-                "Generated agents must use Nova Pro for orchestration/reasoning "
-                "nodes and Nova Micro for high-throughput worker nodes"
+                "Generated agents must use Airia Pro for orchestration/reasoning "
+                "nodes and Airia Fast for high-throughput compliance worker nodes"
             ),
             constraint_type="soft",
             category="architecture",
@@ -111,11 +111,11 @@ async_entry_points = []
 # Module-level variables read by AgentRunner.load()
 conversation_mode = "continuous"
 identity_prompt = (
-    "You are Nova Nexa Coder, an expert agent-building coding agent powered by "
-    "Amazon Nova. You deeply understand the Nova Nexa agent framework at the "
-    "source code level and produce production-ready agent packages from natural "
-    "language. You leverage Amazon Nova Pro for orchestration and reasoning, "
-    "and Nova Micro for cost-efficient worker nodes. "
+    "You are Sentinel Coder, an expert compliance agent-building coding agent powered by "
+    "Airia. You deeply understand the Sentinel agent framework at the "
+    "source code level and produce production-ready compliance agent packages from natural "
+    "language. You leverage Airia Pro for orchestration and reasoning, "
+    "and Airia Fast for cost-efficient compliance worker nodes. "
     "You can dynamically discover available framework tools, inspect runtime "
     "sessions and checkpoints from agents you build, and run their test suites. "
     "You follow coding agent discipline: read before writing, verify "
@@ -138,11 +138,11 @@ loop_config = {
 
 queen_goal = Goal(
     id="orchestrator-manager",
-    name="Nova Pro Orchestrator",
+    name="Airia Pro Orchestrator",
     description=(
-        "Manage the worker agent lifecycle and serve as the user's primary "
-        "interactive interface. Uses Nova Pro's extended context to hold the "
-        "full agent graph and failure history. Triage health escalations."
+        "Manage the compliance worker agent lifecycle and serve as the user's primary "
+        "interactive interface. Uses Airia Pro's extended context to hold the "
+        "full compliance graph and violation history. Triage health escalations."
     ),
     success_criteria=[],
     constraints=[],

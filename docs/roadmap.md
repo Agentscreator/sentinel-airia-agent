@@ -232,7 +232,7 @@ Build robust, local Credential Management interfaces for secure API key handling
 
 - [x] **Unified Credential Store**
     - [x] Multi-backend storage (credentials/store.py)
-    - [x] EncryptedFileStorage: Encrypted local storage (~/.nova-nexa/credentials)
+    - [x] EncryptedFileStorage: Encrypted local storage (~/.sentinel/credentials)
     - [x] EnvVarStorage: Environment variable mapping
     - [x] InMemoryStorage: Testing
     - [x] HashiCorp Vault: Enterprise secrets (credentials/storage.py)
@@ -819,7 +819,7 @@ Create a UI component to inspect the Shared Memory and Write-Through Conversatio
     - [ ] Memory leak detection
 
 ### Local Control Panel
-Build a dashboard for localized Credential Management (editing the ~/.nova-nexa/credentials store safely) and swarm lifecycle management (Start, Pause, Kill, and HITL approvals).
+Build a dashboard for localized Credential Management (editing the ~/.sentinel/credentials store safely) and swarm lifecycle management (Start, Pause, Kill, and HITL approvals).
 
 - [x] **Credential Management Backend**
     - [x] CredentialStore with file/env/vault backends (credentials/store.py)
@@ -827,7 +827,7 @@ Build a dashboard for localized Credential Management (editing the ~/.nova-nexa/
     - [x] Template resolution and caching
 - [ ] **Credential Management Dashboard**
     - [ ] Safe credential editing interface (web UI)
-    - [ ] ~/.nova-nexa/credentials store management UI
+    - [ ] ~/.sentinel/credentials store management UI
     - [ ] Credential validation and testing UI
     - [ ] Encryption status display
     - [ ] OAuth2 flow initiation from browser

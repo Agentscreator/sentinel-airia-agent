@@ -634,7 +634,7 @@ async def handle_queen_messages(request: web.Request) -> web.Response:
     """
     session_id = request.match_info["session_id"]
 
-    queen_dir = Path.home() / ".nova-nexa" / "queen" / "session" / session_id
+    queen_dir = Path.home() / ".sentinel" / "queen" / "session" / session_id
     convs_dir = queen_dir / "conversations"
     if not convs_dir.exists():
         return web.json_response({"messages": [], "session_id": session_id})
@@ -676,7 +676,7 @@ async def handle_queen_messages(request: web.Request) -> web.Response:
 async def handle_session_history(request: web.Request) -> web.Response:
     """GET /api/sessions/history — all queen sessions on disk (live + cold).
 
-    Returns every session directory under ~/.nova-nexa/queen/session/, newest first.
+    Returns every session directory under ~/.sentinel/queen/session/, newest first.
     Live sessions have ``live: true, cold: false``; sessions that survived a
     server restart have ``live: false, cold: true``.
     """
@@ -702,7 +702,7 @@ async def handle_delete_history_session(request: web.Request) -> web.Response:
     """DELETE /api/sessions/history/{session_id} — permanently remove a session.
 
     Stops the live session (if still running) and deletes the queen session
-    directory from disk at ~/.nova-nexa/queen/session/{session_id}/.
+    directory from disk at ~/.sentinel/queen/session/{session_id}/.
     This is the frontend 'delete from history' action.
     """
     manager = _get_manager(request)
@@ -713,7 +713,7 @@ async def handle_delete_history_session(request: web.Request) -> web.Response:
         await manager.stop_session(session_id)
 
     # Delete the queen session directory from disk
-    queen_session_dir = Path.home() / ".nova-nexa" / "queen" / "session" / session_id
+    queen_session_dir = Path.home() / ".sentinel" / "queen" / "session" / session_id
     if queen_session_dir.exists() and queen_session_dir.is_dir():
         try:
             shutil.rmtree(queen_session_dir)

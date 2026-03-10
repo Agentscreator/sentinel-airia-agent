@@ -1,5 +1,5 @@
 """
-Credential Store - Production-ready credential management for Nova Nexa.
+Credential Store - Production-ready credential management for Sentinel.
 
 This module provides secure credential storage with:
 - Key-vault structure: Credentials as objects with multiple keys
@@ -12,7 +12,7 @@ Quick Start:
     from core.framework.credentials import CredentialStore, CredentialObject
 
     # Create store with encrypted storage
-    store = CredentialStore.with_encrypted_storage()  # defaults to ~/.nova-nexa/credentials
+    store = CredentialStore.with_encrypted_storage()  # defaults to ~/.sentinel/credentials
 
     # Get a credential
     api_key = store.get("brave_search")

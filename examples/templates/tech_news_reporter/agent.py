@@ -161,7 +161,7 @@ class TechNewsReporterAgent:
         """Set up the executor with all components."""
         from pathlib import Path
 
-        storage_path = Path.home() / ".nova-nexa" / "tech_news_reporter"
+        storage_path = Path.home() / ".sentinel" / "tech_news_reporter"
         storage_path.mkdir(parents=True, exist_ok=True)
 
         self._event_bus = EventBus()

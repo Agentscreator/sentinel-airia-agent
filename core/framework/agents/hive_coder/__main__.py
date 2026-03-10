@@ -1,4 +1,4 @@
-"""CLI entry point for Nova Nexa Coder agent."""
+"""CLI entry point for Sentinel Coder agent."""
 
 import json
 import logging
@@ -25,7 +25,7 @@ def setup_logging(verbose=False, debug=False):
 @click.group()
 @click.version_option(version="1.0.0")
 def cli():
-    """Nova Nexa Coder — Build agent packages from natural language, powered by Amazon Nova."""
+    """Sentinel Coder — Build compliance agent packages from natural language, powered by Airia."""
     pass
 
 
