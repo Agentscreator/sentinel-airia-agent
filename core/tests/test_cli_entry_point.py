@@ -72,7 +72,7 @@ class TestFrameworkModule:
             cwd=str(project_root / "core"),
         )
         assert result.returncode == 0
-        assert "hive" in result.stdout.lower() or "goal" in result.stdout.lower()
+        assert "sentinel" in result.stdout.lower() or "goal" in result.stdout.lower()
 
     def test_module_list_subcommand(self, project_root):
         """Verify ``python -m framework list --help`` registers the subcommand."""
