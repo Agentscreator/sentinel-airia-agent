@@ -366,12 +366,7 @@ class BrowserSession:
                 else:
                     # Fallback to ~/.sentinel/agents/{agent}/browser/{profile}
                     self.user_data_dir = (
-                        Path.home()
-                        / ".sentinel"
-                        / "agents"
-                        / agent_name
-                        / "browser"
-                        / self.profile
+                        Path.home() / ".sentinel" / "agents" / agent_name / "browser" / self.profile
                     )
 
                 self.user_data_dir.mkdir(parents=True, exist_ok=True)
