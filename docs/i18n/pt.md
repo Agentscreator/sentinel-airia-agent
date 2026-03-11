@@ -110,7 +110,7 @@ Isto configura:
 - **LLM provider** - Configuração interativa de modelo padrão
 - Todas as dependências Python necessárias com `uv`
 
-- Por fim, ele iniciará a interface open hive no seu navegador
+- Por fim, ele iniciará a interface Sentinel no seu navegador
 
 <img width="2500" height="1214" alt="home-screen" src="https://github.com/user-attachments/assets/134d897f-5e75-4874-b00b-e0505f6b45c4" />
 

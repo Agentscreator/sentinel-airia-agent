@@ -110,7 +110,7 @@ cd hive
 - **LLM provider** - इंटरैक्टिव डिफ़ॉल्ट मॉडल कॉन्फ़िगरेशन
 - `uv` के साथ सभी आवश्यक Python डिपेंडेंसीज़
 
-- अंत में, यह आपके ब्राउज़र में open hive इंटरफ़ेस शुरू करेगा
+- अंत में, यह आपके ब्राउज़र में Sentinel इंटरफ़ेस शुरू करेगा
 
 <img width="2500" height="1214" alt="home-screen" src="https://github.com/user-attachments/assets/134d897f-5e75-4874-b00b-e0505f6b45c4" />
 

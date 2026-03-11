@@ -356,7 +356,7 @@ export default function ChatPanel({ messages, onSend, isWaiting, isWorkerWaiting
                   handleSubmit(e);
                 }
               }}
-              placeholder={disabled ? "Connecting to agent..." : "Message Queen Bee..."}
+              placeholder={disabled ? "Connecting to agent..." : "Message Sentinel..."}
               disabled={disabled}
               className="flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50 disabled:cursor-not-allowed resize-none overflow-y-auto"
             />

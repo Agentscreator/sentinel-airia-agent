@@ -99,7 +99,7 @@ export default function Home() {
       {/* Main content */}
       <div className="flex-1 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-2xl">
-          {/* Queen Bee greeting */}
+          {/* Sentinel greeting */}
           <div className="text-center mb-8">
             <div
               className="inline-flex w-12 h-12 rounded-2xl items-center justify-center mb-4"
@@ -113,7 +113,7 @@ export default function Home() {
             </div>
             <h1 className="text-xl font-semibold text-foreground mb-1.5">What can I help you with?</h1>
             <p className="text-sm text-muted-foreground">
-              I'm your Queen Bee — I create and coordinate worker agents to handle tasks for you.
+              I'm your Sentinel — I create and coordinate worker agents to handle tasks for you.
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export default function Home() {
                     handleSubmit(e);
                   }
                 }}
-                placeholder="Describe a task for the hive..."
+                placeholder="Describe a task for Sentinel..."
                 className="w-full bg-transparent px-5 py-4 pr-12 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none rounded-xl resize-none overflow-y-auto"
               />
               <div className="absolute right-3 bottom-2.5">

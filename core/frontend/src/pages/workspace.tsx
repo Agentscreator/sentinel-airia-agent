@@ -190,7 +190,7 @@ function NewTabPopover({ open, onClose, anchorRef, discoverAgents, onFromScratch
               <span className={iconWrap}><Sparkles className="w-3.5 h-3.5 text-primary" /></span>
               <div>
                 <div className="font-medium leading-tight">From scratch</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Empty pipeline + Queen Bee setup</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Empty pipeline + Sentinel setup</div>
               </div>
             </button>
             <button className={optionClass} onClick={() => setStep("clone-pick")}>
@@ -652,7 +652,7 @@ export default function Workspace() {
             try {
               const { messages: queenMsgs } = await sessionsApi.queenMessages(restoreFrom);
               for (const m of queenMsgs as Message[]) {
-                const msg = backendMessageToChatMessage(m, agentType, "Queen Bee");
+                const msg = backendMessageToChatMessage(m, agentType, "Sentinel");
                 msg.role = "queen";
                 preRestoredMsgs.push(msg);
               }
@@ -727,7 +727,7 @@ export default function Workspace() {
 
         updateAgentState(agentType, {
           sessionId: liveSession.session_id,
-          displayName: "Queen Bee",
+          displayName: "Sentinel",
           ready: true,
           loading: false,
           queenReady: true,
@@ -801,7 +801,7 @@ export default function Workspace() {
             // Also pre-fetch worker messages from the old session if a resumable worker exists
             const displayNameTemp = formatAgentDisplayName(agentPath);
             for (const m of queenMsgs as Message[]) {
-              const msg = backendMessageToChatMessage(m, agentType, "Queen Bee");
+              const msg = backendMessageToChatMessage(m, agentType, "Sentinel");
               msg.role = "queen";
               preQueenMsgs.push(msg);
             }
@@ -953,7 +953,7 @@ export default function Workspace() {
         try {
           const { messages: queenMsgs } = await sessionsApi.queenMessages(historyId);
           for (const m of queenMsgs as Message[]) {
-            const msg = backendMessageToChatMessage(m, agentType, "Queen Bee");
+            const msg = backendMessageToChatMessage(m, agentType, "Sentinel");
             msg.role = "queen";
             restoredMsgs.push(msg);
           }
@@ -1267,7 +1267,7 @@ export default function Workspace() {
       // Uses a synchronous ref to avoid race conditions with React state batching.
       const suppressQueenMessages = isQueen && suppressIntroRef.current.has(agentType);
       const agentDisplayName = agentStates[agentType]?.displayName;
-      const displayName = isQueen ? "Queen Bee" : (agentDisplayName || undefined);
+      const displayName = isQueen ? "Sentinel" : (agentDisplayName || undefined);
       const role = isQueen ? "queen" as const : "worker" as const;
       const ts = fmtLogTs(event.timestamp);
       // Turn counter is per-stream so queen and worker tool pills don't
@@ -1898,7 +1898,7 @@ export default function Workspace() {
         content: text, timestamp: "", type: "user", thread, createdAt: Date.now(),
       };
       const promptMsg: ChatMessage = {
-        id: makeId(), agent: "Queen Bee", agentColor: "",
+        id: makeId(), agent: "Sentinel", agentColor: "",
         content: "Before we get started, you'll need to configure your credentials. Click the **Credentials** button in the top bar to connect the required integrations for this agent.",
         timestamp: "", role: "queen" as const, thread, createdAt: Date.now(),
       };
@@ -2249,7 +2249,7 @@ export default function Workspace() {
       const { messages: queenMsgs } = await sessionsApi.queenMessages(sessionId);
       for (const m of queenMsgs as Message[]) {
         const resolvedType = agentPath || "new-agent";
-        const msg = backendMessageToChatMessage(m, resolvedType, "Queen Bee");
+        const msg = backendMessageToChatMessage(m, resolvedType, "Sentinel");
         msg.role = "queen";
         prefetchedMessages.push(msg);
       }

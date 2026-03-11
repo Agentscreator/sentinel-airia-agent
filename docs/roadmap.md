@@ -729,7 +729,7 @@ Ship ~20 ready-to-use templates including GTM Sales, Marketing, Analytics, Train
 
 ---
 
-## Open Hive
+## Sentinel
 
 ### Local API Gateway
 Build a lightweight local server (e.g., FastAPI or Node) that securely exposes the Hive framework's core Event Bus and Memory Layer to the local browser environment.
@@ -844,7 +844,7 @@ Build a dashboard for localized Credential Management (editing the ~/.sentinel/c
     - [ ] Execution history
 
 ### Local Model Integration
-Build native frontend configurations to easily connect Open Hive's backend to local open-source inference engines like Ollama, keeping the entire stack offline and private.
+Build native frontend configurations to easily connect Sentinel's backend to local open-source inference engines like Ollama, keeping the entire stack offline and private.
 
 - [x] **LLM Integration Layer**
     - [x] Provider-agnostic LLM support via LiteLLM (graph/event_loop_node.py)
